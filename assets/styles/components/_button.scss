@@ -1,0 +1,61 @@
+a.g-btn,
+.g-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--btn-height);
+  min-width: var(--btn-width);
+  padding: rem(4) rem(30);
+  border-radius: rem(20);
+  background-color: var(--blue);
+  //box-shadow: 0 rem(4) rem(19) rgba(var(--orange-rgb), 0.4);
+
+  font-family: var(--f1);
+  font-style: normal;
+  font-weight: 400;
+  font-size: rem(16);
+  line-height: 1.5;
+
+  color: var(--white);
+  cursor: pointer;
+  transition: all var(--animation);
+
+  &--big {
+    min-width: rem(225);
+    min-height: rem(48);
+    border-radius: rem(100);
+  }
+
+  &[href]:hover,
+  &:hover {
+    background-color: #51A5FF;
+  }
+
+  &[href]:active,
+  &:active {
+    background-color: #0167D3;
+  }
+
+  &[disabled] {
+    background-color: #D1D5EA;
+    pointer-events: none;
+  }
+
+  &--green {
+    background-color: var(--green);
+
+    &[href]:hover,
+    &:hover {
+      background-color: lighten(#34C87E, 15%);
+    }
+
+    &[href]:active,
+    &:active {
+      background-color: darken(#34C87E, 5%);
+    }
+  }
+}
+
+.g-btn--height {
+  min-height: rem(48);
+}

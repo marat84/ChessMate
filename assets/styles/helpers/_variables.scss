@@ -1,0 +1,101 @@
+@import '~vuetify/src/styles/settings/_variables';
+
+$base-fz: 16;
+
+$md-and-down: map-get($display-breakpoints, 'md-and-down');
+$md-and-up: map-get($display-breakpoints, 'md-and-up');
+$sm-and-down: map-get($display-breakpoints, 'sm-and-down');
+$smOnly: map-get($display-breakpoints, 'sm-only');
+$sm-and-up: map-get($display-breakpoints, 'sm-and-up');
+$xsOnly: map-get($display-breakpoints, 'xs-only');
+$lg-and-up: map-get($display-breakpoints, 'lg-and-up');
+$lg-and-down: map-get($display-breakpoints, 'lg-and-down');
+
+$font: "raleway";
+$font2: "bebas";
+
+:root {
+  --scroll-width: 0px;
+
+  /* Base font-size */
+  --base-fz: 16;
+
+  --f-min: 12;
+  --f-min-px: 12px;
+  --f-max: 16;
+
+  --vw-min: 1024;
+  --vw-min-px: 1024px;
+  --vw-max: 1920;
+
+  /* Base spaces */
+  @include spaces(19.2, vw);
+
+  /* Base colors */
+  --white: #ffffff;
+  --white-rgb: 255, 255, 255;
+  --black: #0E1012;
+  --black-rgb: 14, 16, 18;
+  --text-color: var(--black);
+
+  --yellow: #ffbd00;
+  --yellow-rgb: 255, 189, 0;
+  --red: #ff3e02;
+  --red-rgb: 255, 62, 2;
+  --blue: #009DF8;
+  --blue-rgb: 0, 157, 248;
+  --green: #8DC615;
+  --green-rgb: 141, 198, 21;
+
+  --btn-height: #{rem(40)};
+  --btn-width: #{rem(105)};
+  --header-height: #{rem(105)};
+
+  --animation: 0.3s ease;
+
+  --f1: #{$font}, sans-serif;
+  --f2: #{$font2}, sans-serif;
+
+  @media (max-width: 1280px) {
+    /* Base font-size */
+    --base-fz: 16;
+
+    --f-min: 12;
+    --f-min-px: 12px;
+    --f-max: 16;
+
+    --vw-min: 768;
+    --vw-min-px: 768px;
+    --vw-max: 1280;
+  }
+
+  @media (max-width: 768px) {
+    /* Base font-size */
+    --base-fz: 14;
+
+    --f-min: 14;
+    --f-min-px: 14px;
+    --f-max: 14;
+
+    --vw-min: 360;
+    --vw-min-px: 360px;
+    --vw-max: 768;
+
+    /* Base spaces */
+    @include spaces(2, px);
+  }
+}
+
+$fw: 400;
+$fz: 1rem;
+$lh: 1.5625;
+$ff: $font, "Arial", "Helvetica Neue", "sans-serif";
+
+$headers: (
+        h1: 34, // px
+        h2: 28, // px
+        h3: 24, // px
+        h4: 18, // px
+        h5: 14, // px
+        h6: 12, // px
+);
