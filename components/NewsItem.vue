@@ -1,9 +1,9 @@
 <template>
-  <article :class="['news-item', {'news-item--inner' : isInner}, {'news-item--first' : isFirst}]">
+  <article :class="['news-item', {'news-item--inner' : isInner}, {'news-item--first' : isFirst}, {'news-item--mini' : isMini}]">
     <span class="news-item__inner-hr" v-show="isInner && !isFirst"></span>
     <div>
       <h3 class="news-item__title">
-        <nuxt-link :to="'/'" class="news-item__link">
+        <nuxt-link :to="localePath('/news' + '/' + data.id)" class="news-item__link">
           Непомнящий остался на третьем месте в рейтинге FIDE
         </nuxt-link>
       </h3>
@@ -20,6 +20,7 @@ export default {
     data: Object,
     isInner: Boolean,
     isFirst: Boolean,
+    isMini: Boolean,
   }
 }
 </script>
@@ -45,6 +46,22 @@ export default {
 
     .news-item__title {
       margin-top: rem(24);
+    }
+  }
+
+  &--mini {
+    .news-item__title {
+      font-weight: 600;
+      font-size: rem(24);
+      line-height: 1.33;
+      max-width: none;
+    }
+
+    .news-item__date,
+    .news-item__desc {
+      font-size: rem(18);
+      line-height: 1.33;
+      max-width: none;
     }
   }
 

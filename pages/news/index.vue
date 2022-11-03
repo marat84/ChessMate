@@ -27,11 +27,11 @@ export default {
           image: '/images/news-2.jpg',
         },
         {
-          id: 2,
+          id: 4,
           image: '/images/news-1.jpg',
         },
         {
-          id: 3,
+          id: 5,
           image: '/images/news-2.jpg',
         },
       ]
