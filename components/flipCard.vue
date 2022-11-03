@@ -17,10 +17,18 @@
   height: rem(420);
   perspective: 1000px;
 
-  &:hover .flip-card__content {
-    transform: rotateY(180deg);
-    transition: transform 0.5s;
+  &:hover {
+    .flip-card__front {
+      z-index: -5;
+      backface-visibility: hidden;
+    }
+
+    .flip-card__content {
+      transform: rotateY(180deg);
+      transition: transform 0.5s;
+    }
   }
+
 }
 
 .flip-card__content {

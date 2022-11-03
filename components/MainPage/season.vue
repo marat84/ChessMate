@@ -16,7 +16,7 @@
                 </div>
               </li>
               <li>
-                <div class="member-list__wrap">
+                <div class="member-list__wrap member-list__wrap--girl-icon">
                   <strong>30</strong>
                   женщин
                 </div>
@@ -26,14 +26,14 @@
             <p class="season-group-info__desc mb-0">Любители</p>
             <ul class="dlist pl-0 member-list">
               <li>
-                <div class="member-list__wrap">
-                  <strong>70</strong>
+                <div class="member-list__wrap member-list__wrap--gray-icon">
+                  <strong>60</strong>
                   Мужчины
                 </div>
               </li>
               <li>
-                <div class="member-list__wrap">
-                  <strong>30</strong>
+                <div class="member-list__wrap member-list__wrap--gray-icon-girl">
+                  <strong>40</strong>
                   женщин
                 </div>
               </li>
@@ -80,9 +80,8 @@
                 <br>
                 отборочный тур
               </h3>
-              <p class="season-back-card__text mb-0">Соревнование проводится на сайте
-                <a href="https://chess.com" target="_blank" rel="nofollow">chess.com</a>
-                в форме блиц (3+2)
+              <p class="season-back-card__text mb-0">
+                Проводится на сайте chess.com для мужчин любителей по <a href="https://www.chess.com/club/toshkent-open-erkaklar" target="_blank" rel="nofollow">ссылке</a>, для женщин любителей по <a href="https://www.chess.com/club/toshkent-open-ayollar" target="_blank" rel="nofollow">ссылке</a>.
               </p>
             </div>
           </template>
@@ -117,7 +116,7 @@
                 <br>
                 финальный тур
               </h3>
-              <p class="season-back-card__text mb-0">Этап состоит из 9 туров по швейцарской системе по форме “Рапид” (15+10)</p>
+              <p class="season-back-card__text mb-0">Этап состоит из 9 туров по швейцарской системе по форме “Рапид” (15+10).</p>
             </div>
           </template>
         </FlipCard>

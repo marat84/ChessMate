@@ -1,6 +1,6 @@
 <template>
   <v-app class="main-wrap">
-    <div class="content-wrap" v-if="mountPage">
+    <div class="content-wrap" :class="{'content-wrap--lights' : forLights}" v-if="mountPage">
       <Header></Header>
       <article class="main-article">
         <Nuxt></Nuxt>
@@ -20,6 +20,11 @@ export default {
   computed: {
     mainPage() {
       return (this.$route.name?.includes('index___') && !this.$nuxt.nuxt?.err);
+    },
+    forLights() {
+      return (
+          this.$route.path.indexOf('feedback') > 0 && !this.$nuxt.nuxt?.err
+      );
     },
     noFooter() {
       return (
@@ -73,6 +78,26 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  &--lights::after,
+  &--lights::before {
+    content: "";
+    position: fixed;
+    top: 20%;
+    right: rem(-120);
+    width: rem(240);
+    height: rem(240);
+    border-radius: rem(240);
+    background-color: #A6875B;
+    z-index: -2;
+    filter: blur(144px);
+  }
+
+   &--lights::after {
+     top: 70%;
+     right: auto;
+     left: rem(-120);
+   }
 }
 
 .main-article {

@@ -1,7 +1,7 @@
 :root {
   --container-lg: calc(50% - #{rem(840)}); /* 1680 */
   --container-md: calc(50% - #{rem(700)}); /* 1400 */
-  --container-sm: calc(50% - #{rem(550)}); /* 1100 */
+  --container-sm: calc(50% - #{rem(440)}); /* 880 */
 
   --container-padding-sm: 15px;
   --container-padding-md: calc(var(--container-padding-sm) * 2);
@@ -51,7 +51,7 @@
   padding-left: var(--container-padding-lg);
 }
 
-.g-container--narrow,
+.g-container-narrow,
 .g-container-wide,
 .g-container {
   padding-right: var(--container-md);
@@ -79,15 +79,15 @@
   padding-left: var(--container-lg);
 }
 
-.g-container--narrowRight {
+.g-container-narrowRight {
   padding-right: var(--container-sm);
 }
 
-.g-container--narrowLeft {
+.g-container-narrowLeft {
   padding-left: var(--container-sm);
 }
 
-.g-container--narrow {
+.g-container-narrow {
   padding-right: var(--container-sm);
   padding-left: var(--container-sm);
 }

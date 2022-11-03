@@ -75,8 +75,10 @@ export default {
     {src: "~/plugins/vue-tiny-slider.js", mode: 'client'},
     {src: "~/plugins/infiniteloading.js", mode: 'client'},
 
+    {src: '~/plugins/MyPlugins/fileUpload.js', mode: 'client'},
     {src: '~/plugins/MyPlugins/utils.js', mode: 'client'},
     {src: '~/plugins/MyPlugins/message.js', mode: 'client'},
+
     '~/plugins/MyPlugins/getStatusError.js',
     '~/plugins/MyPlugins/prettyDate.js',
     '~/plugins/MyPlugins/addClassModification.js',

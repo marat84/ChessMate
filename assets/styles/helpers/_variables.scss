@@ -14,6 +14,8 @@ $lg-and-down: map-get($display-breakpoints, 'lg-and-down');
 $font: "raleway";
 $font2: "bebas";
 
+$yellow: #ffbd00;
+
 :root {
   --scroll-width: 0px;
 
@@ -38,7 +40,7 @@ $font2: "bebas";
   --black-rgb: 14, 16, 18;
   --text-color: var(--black);
 
-  --yellow: #ffbd00;
+  --yellow: #{$yellow};
   --yellow-rgb: 255, 189, 0;
   --red: #ff3e02;
   --red-rgb: 255, 62, 2;
@@ -47,8 +49,8 @@ $font2: "bebas";
   --green: #8DC615;
   --green-rgb: 141, 198, 21;
 
-  --btn-height: #{rem(40)};
-  --btn-width: #{rem(105)};
+  --btn-height: #{rem(72)};
+  --btn-width: #{rem(225)};
   --header-height: #{rem(105)};
 
   --animation: 0.3s ease;

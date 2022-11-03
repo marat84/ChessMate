@@ -179,7 +179,7 @@
 
     <a href="/Docs/rules-pdf.pdf" class="file-download" target="_blank">
       <img src="/images/pdf.svg" alt="иконка скачивания" aria-hidden="true" role="presentation">
-      Правила на Узб.pdf
+      Правила.pdf
     </a>
   </section>
 </template>
