@@ -76,6 +76,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: rem(24);
+
     & > li {
       margin-right: 0;
     }
@@ -83,8 +84,21 @@ export default {
 }
 
 .nav-list__link {
+  font-weight: 500;
+  font-size: rem(18);
+  line-height: 1.33;
+
   &:hover {
     opacity: 0.6;
+  }
+
+  &--active {
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--yellow);
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 

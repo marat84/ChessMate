@@ -43,6 +43,8 @@
 }
 
 .footer-info-wrap {
+  font-weight: 500;
+  font-size: rem(18);
   display: grid;
   grid-gap: rem(24);
 

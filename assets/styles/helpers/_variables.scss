@@ -87,8 +87,8 @@ $font2: "bebas";
 }
 
 $fw: 400;
-$fz: 1rem;
-$lh: 1.5625;
+$fz: rem(24);
+$lh: 1.33;
 $ff: $font, "Arial", "Helvetica Neue", "sans-serif";
 
 $headers: (

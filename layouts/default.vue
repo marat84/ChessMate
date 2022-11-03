@@ -2,7 +2,7 @@
   <v-app class="main-wrap">
     <div class="content-wrap" v-if="mountPage">
       <Header></Header>
-      <article>
+      <article class="main-article">
         <Nuxt></Nuxt>
       </article>
       <Footer></Footer>
@@ -67,3 +67,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main-article {
+  flex-grow: 1;
+}
+</style>

@@ -6,9 +6,28 @@
   text-align: right;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .no-wrap {
   white-space: nowrap;
 }
+
+.max-width-95 {max-width: 95%}
+.max-width-90 {max-width: 90%}
+.max-width-85 {max-width: 85%}
+.max-width-80 {max-width: 80%}
+.max-width-75 {max-width: 75%}
+.max-width-70 {max-width: 70%}
+.max-width-65 {max-width: 65%}
+.max-width-60 {max-width: 60%}
+.max-width-55 {max-width: 55%}
+.max-width-50 {max-width: 50%}
+.max-width-45 {max-width: 45%}
+.max-width-40 {max-width: 40%}
+.max-width-35 {max-width: 35%}
+.max-width-30 {max-width: 30%}
 
 .mb-0 {margin-bottom: 0;}
 .mb-10 {margin-bottom: var(--space-10)}

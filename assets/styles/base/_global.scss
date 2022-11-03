@@ -13,7 +13,7 @@ html {
 
 body {
   min-height: 100%;
-  background-color: var(--black);
+  background-color: #0f1111;
   color: var(--white);
   font-feature-settings: 'pnum' on, 'lnum' on;
 
@@ -90,10 +90,12 @@ textarea {
 }
 
 .inner-title {
-  font-weight: 600;
-  font-size: rem(32);
-  line-height: 1.25;
-  color: #1E2538;
+  font-family: var(--f2);
+  font-weight: 700;
+  font-size: rem(112);
+  line-height: 1;
+  text-align: center;
+  margin-top: rem(120);
 }
 
 button:focus:not(.focus-visible) {

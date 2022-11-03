@@ -3,10 +3,10 @@
     <span class="lang-current">{{ currentLang }}</span>
     <ul class="dlist lang-list pl-0">
       <li v-if="this.$i18n.locale !== 'ru'">
-        <nuxt-link :to="switchLocalePath('ru')" class="lang-list__link" lang="ru">русский</nuxt-link>
+        <nuxt-link :to="switchLocalePath('ru')" class="lang-list__link" lang="ru">Русский</nuxt-link>
       </li>
       <li v-if="this.$i18n.locale !== 'uz'">
-        <nuxt-link :to="switchLocalePath('uz')" class="lang-list__link" lang="uz">o‘zbekcha</nuxt-link>
+        <nuxt-link :to="switchLocalePath('uz')" class="lang-list__link" lang="uz">O‘zbekcha</nuxt-link>
       </li>
     </ul>
   </div>
@@ -16,10 +16,10 @@
 export default {
   computed: {
     currentLang() {
-      let currentLang = 'русский';
+      let currentLang = 'Русский';
 
       if (this.$i18n.locale === 'uz')
-        currentLang = 'o‘zbekcha';
+        currentLang = 'O‘zbekcha';
 
       return currentLang
     }
@@ -61,13 +61,13 @@ export default {
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  padding-top: rem(18);
+  //padding-top: rem(22);
   padding-right: rem(20);
-  padding-bottom: rem(18);
+  //padding-bottom: rem(22);
   cursor: default;
   text-decoration: none;
-  font-weight: 400;
-  font-size: rem(16);
+  font-weight: 500;
+  font-size: rem(18);
   line-height: 1.33;
   z-index: 0;
   color: var(--white);
@@ -100,7 +100,7 @@ export default {
 
 .lang-list {
   position: absolute;
-  top: 90%;
+  top: 100%;
   left: 50%;
   background-color: var(--gray);
   border-radius: 8px;

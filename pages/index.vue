@@ -102,33 +102,6 @@ export default {
         },
       ],
 
-      partners: [
-        {
-          id: 1,
-          icon: '/images/partner-1.svg',
-        },
-        {
-          id: 2,
-          icon: '/images/partner-2.svg',
-        },
-        {
-          id: 3,
-          icon: '/images/partner-3.svg',
-        },
-        {
-          id: 4,
-          icon: '/images/partner-4.svg',
-        },
-        {
-          id: 5,
-          icon: '/images/partner-5.svg',
-        },
-        {
-          id: 6,
-          icon: '/images/partner-6.svg',
-        },
-      ],
-
       gallery: [
         {
           id: 1,
@@ -151,6 +124,12 @@ export default {
           image: '/images/gallery-1.png',
         },
       ]
+    }
+  },
+
+  computed: {
+    partners() {
+      return this.$store.getters['partners/getData'];
     }
   }
 }
