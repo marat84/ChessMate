@@ -26,7 +26,7 @@
     </div>
 
     <section class="section-partners g-container-wide">
-      <h2 class="inner-title-mini">НАШИ партнеры</h2>
+      <h2 class="inner-title-mini">{{ $t('mainText4') }}</h2>
       <Partners :data="partners"></Partners>
     </section>
   </section>

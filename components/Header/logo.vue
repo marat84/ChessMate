@@ -1,6 +1,6 @@
 <template>
   <nuxt-link class="logo" :to="localePath('/')" tabindex="1">
-    <span class="visually-hidden">Логотип сайта</span>
+    <span class="visually-hidden">{{ $t('logoAlt') }}</span>
     <svg viewBox="0 0 111 72" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M58.865 51.568c-3.06-7.69-3.93-13.096-3.892-24.324h-4.865c.854 9.935-.18 15.217-3.892 24.324h16.54c-3.11-8.489-4.03-13.756-3.892-24.324H56.92c-.585 10.106.227 15.444 3.892 24.324h-1.946z" fill="#fff"/>
       <path d="M65.676 57.405c1.36 2.076 1.725 3.862 1.945 6.325l-3.891.486c-1.096-2.474-1.673-4.348-1.946-6.81h3.892zM8.27 34.54V70.2h8.83V37.8l-8.83-3.26z" fill="#fff"/>
@@ -27,6 +27,11 @@
   & > svg {
     width: vw(111);
     height: vw(72);
+
+    @media #{$smAndDown} {
+      width: 49px;
+      height: 32px;
+    }
   }
 }
 </style>

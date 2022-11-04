@@ -40,12 +40,11 @@ export default {
     margin-top: -8px;
   }
 
-  @media #{$md-and-down} {
-    order: -1;
+  @media #{$smAndDown} {
     display: flex;
     align-items: center;
-    margin-bottom: rem(30);
-    border-bottom: 2px solid rgba(white, 0.3);
+    margin-top: 32px;
+    width: 100%;
   }
 }
 
@@ -86,11 +85,11 @@ export default {
     transition: all var(--animation);
   }
 
-  @media #{$md-and-down} {
+  @media #{$smAndDown} {
+    display: inline-block;
+    font-weight: 400;
     font-size: 18px;
-    padding: 20px;
-    font-weight: 900;
-    color: var(--orange);
+    line-height: 24px;
 
     &::after {
       display: none;
@@ -137,7 +136,7 @@ export default {
       outline: 5px auto #fff;
     }
 
-    @media #{$md-and-down} {
+    @media #{$smAndDown} {
       font-size: 18px;
       padding: 20px;
     }
@@ -164,16 +163,35 @@ export default {
     }
   }*/
 
-  @media #{$md-and-down} {
+  @media #{$smAndDown} {
     display: flex;
     align-items: center;
     position: static;
     opacity: 1;
     overflow: visible;
     pointer-events: all;
-    transform: translateY(0) translateX(-50%);
+    transform: translateY(0) translateX(0);
     background: none;
     box-shadow: 0 0 0 1px rgba(black, 0.1);
+
+    & button,
+    & a {
+      color: var(--white);
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+      display: block;
+      padding: 0;
+      width: 100%;
+      transition: all var(--animation);
+      border: none;
+    }
+    & > li:first-child {
+      & a {
+        border: none;
+      }
+    }
   }
 }
 

@@ -1,5 +1,5 @@
 const defaultLang = 'ru';
-const mainUrl = 'https://geointellect.uz/';
+const mainUrl = 'https://chess.tashkent.uz/';
 
 let defaultTitle = 'Tashkent open - международный шахматный турнир';
 let defaultDesc = 'Сайт посвященный международному шахматному турниру проходящему в городе Ташкенте при содействии хокимията города';

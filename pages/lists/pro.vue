@@ -1,20 +1,10 @@
 <template>
   <section class="mt-16">
     <div class="g-container-wide mb-60">
-      <h2 class="visually-hidden">Профессионалы</h2>
-      <p class="mb-10">
-        В профессиональной мужской группе участники-мужчины с международным рейтингом FIDE GM, IM,
-        <br>
-        FM и FIDE Standard выше 2000 в количестве 70 шахматистов примут участие во втором туре,
-        <br>
-        зарегистрировавшись онлайн через @uzshaxmatbot до 4 ноября.
+      <h2 class="visually-hidden">{{ $t('memberList12') }}</h2>
+      <p class="mb-10" v-html="$t('memberList14')">
       </p>
-      <p class="mb-10">
-        В профессиональной женской группе участницы с международным рейтингом FIDE GM, IM, FM и FIDE
-        <br>
-        Standard выше 1400 в количестве 30 шахматисток примут участие во втором туре,
-        <br>
-        зарегистрировавшись онлайн через @uzshaxmatbot до 4 ноября.
+      <p class="mb-10" v-html="$t('memberList15')">
       </p>
     </div>
 
@@ -24,7 +14,7 @@
         <template #search>
           <FormInput
               id="filter-search"
-              label="Введите ID или ФИО участника"
+              :label="$t('memberList4')"
               v-model="filterSearch"
               :modelValue="filterSearch"
           ></FormInput>
@@ -35,14 +25,14 @@
             <v-autocomplete
                 v-model="filterSex"
                 :items="[
-                  {id: 1, value: 'male', name:'Мужчина'},
-                  {id: 2, value: 'female', name:'Женщина'}
+                  {id: 1, value: 'male', name: $t('sex1')},
+                  {id: 2, value: 'female', name: $t('sex2')}
                 ]"
                 item-value="value"
                 :item-text="'name'"
-                no-data-text="Нет данных"
-                placeholder="Для поиска начните писать"
-                label="Пол участника"
+                :no-data-text="$t('memberList5')"
+                :placeholder="$t('memberList6')"
+                :label="$t('memberList7')"
                 background-color="transparent"
                 dark
                 height="3.5rem"
@@ -61,9 +51,9 @@
                 ]"
                 item-value="value"
                 :item-text="'name'"
-                no-data-text="Нет данных"
-                placeholder="Для поиска начните писать"
-                label="Все страны"
+                :no-data-text="$t('memberList5')"
+                :placeholder="$t('memberList6')"
+                :label="$t('memberList8')"
                 background-color="transparent"
                 dark
                 height="3.5rem"
@@ -92,9 +82,9 @@
               ]"
                 item-value="value"
                 :item-text="'name'"
-                no-data-text="Нет данных"
-                placeholder="Для поиска начните писать"
-                label="Статус"
+                :no-data-text="$t('memberList5')"
+                :placeholder="$t('memberList6')"
+                :label="$t('memberList16')"
                 background-color="transparent"
                 dark
                 height="3.5rem"

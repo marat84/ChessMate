@@ -84,6 +84,8 @@ $yellow: #ffbd00;
     --vw-min-px: 360px;
     --vw-max: 768;
 
+    --header-height: #{rem(70)};
+
     /* Base spaces */
     @include spaces(2, px);
   }

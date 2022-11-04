@@ -4,16 +4,13 @@
       <video class="video" id="main-video" width="1920" height="1080" muted loop playsinline autoplay aria-hidden="true" data-id="part-0">
         <source src="/video/main.webm" type="video/webm">
         <source src="/video/main.mp4" type="video/mp4">
-        К сожалению, ваш браузер не поддерживает встроенные видео.
+        {{ $t('mainText1') }}
       </video>
-      <p class="main-video-text">
-        <span>TASHKENT OPEN</span>
-        <br>
-        международный шахматный турнир
+      <p class="main-video-text" v-html="$t('mainText2')">
       </p>
       <div class="main-marquee-text-wrap">
         <marquee-text :repeat="5">
-          6-7 ноября гостиница hilton&nbsp;
+          {{ $t('mainText3') + '\xa0'}}
         </marquee-text>
       </div>
     </div>
@@ -21,7 +18,7 @@
     <MainPageSeason class="mb-95"></MainPageSeason>
 
     <section class="section-news g-container-wideLeft">
-      <h2 class="main-section-title">Новости</h2>
+      <h2 class="main-section-title">{{ $t('nav6') }}</h2>
 
       <MainTinySlider
           :options="{...options, controlsContainer: '.js-slider-control-container' + 1}"
@@ -36,12 +33,12 @@
     </section>
 
     <section class="section-partners g-container-wide mb-95">
-      <h2 class="main-section-title">НАШИ партнеры</h2>
+      <h2 class="main-section-title">{{ $t('mainText4') }}</h2>
       <Partners :data="partners"></Partners>
     </section>
 
     <section class="section-news g-container-wideLeft">
-      <h2 class="main-section-title">Фотогалерея</h2>
+      <h2 class="main-section-title">{{ $t('mainText5') }}</h2>
 
       <MainTinySlider
           :options="{...optionsGallery, controlsContainer: '.js-slider-control-container' + 2}"

@@ -98,6 +98,10 @@ textarea {
   line-height: 1;
   text-align: center;
   margin-top: rem(120);
+
+  @media #{$smAndDown} {
+    margin-top: calc(var(--header-height) + 50px);
+  }
 }
 
 button:focus:not(.focus-visible) {

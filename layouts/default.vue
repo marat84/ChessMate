@@ -91,6 +91,10 @@ export default {
     background-color: #A6875B;
     z-index: -2;
     filter: blur(144px);
+
+    @media #{$smAndDown} {
+      display: none;
+    }
   }
 
    &--lights::after {

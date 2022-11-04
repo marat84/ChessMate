@@ -1,11 +1,9 @@
 <template>
   <section class="mt-16">
     <div class="g-container-wide mb-60">
-      <h2 class="visually-hidden">Отборочный тур</h2>
-      <p class="mb-10">
-        Отборочный этап турнира пройдет онлайн
-        <br>
-        на платформе chess.com в форме блиц (3+2),
+      <h2 class="visually-hidden">{{ $t('memberList11') }}</h2>
+      <p class="mb-10" v-html="$t('memberList13')">
+
       </p>
     </div>
 
@@ -15,7 +13,7 @@
         <template #search>
           <FormInput
               id="filter-search"
-              label="Введите ID или ФИО участника"
+              :label="$t('memberList4')"
               v-model="filterSearch"
               :modelValue="filterSearch"
           ></FormInput>
@@ -26,14 +24,14 @@
             <v-autocomplete
                 v-model="filterSex"
                 :items="[
-                  {id: 1, value: 'male', name:'Мужчина'},
-                  {id: 2, value: 'female', name:'Женщина'}
+                  {id: 1, value: 'male', name: $t('sex1')},
+                  {id: 2, value: 'female', name: $t('sex2')}
                 ]"
                 item-value="value"
                 :item-text="'name'"
-                no-data-text="Нет данных"
-                placeholder="Для поиска начните писать"
-                label="Пол участника"
+                :no-data-text="$t('memberList5')"
+                :placeholder="$t('memberList6')"
+                :label="$t('memberList7')"
                 background-color="transparent"
                 dark
                 height="3.5rem"
@@ -52,9 +50,9 @@
                 ]"
                 item-value="value"
                 :item-text="'name'"
-                no-data-text="Нет данных"
-                placeholder="Для поиска начните писать"
-                label="Все страны"
+                :no-data-text="$t('memberList5')"
+                :placeholder="$t('memberList6')"
+                :label="$t('memberList8')"
                 background-color="transparent"
                 dark
                 height="3.5rem"
@@ -73,9 +71,9 @@
                 ]"
                 item-value="value"
                 :item-text="'name'"
-                no-data-text="Нет данных"
-                placeholder="Для поиска начните писать"
-                label="Район"
+                :no-data-text="$t('memberList5')"
+                :placeholder="$t('memberList6')"
+                :label="$t('memberList9')"
                 background-color="transparent"
                 dark
                 height="3.5rem"

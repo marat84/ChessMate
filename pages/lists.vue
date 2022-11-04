@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="member-tabs-wrap g-container-wide">
-      <p class="inner-title-mini mb-0 mr-8" :class="{'gray-color' : isPro}">Любители:</p>
+      <p class="inner-title-mini mb-0 mr-8" :class="{'gray-color' : isPro}">{{ $t('memberList17') }}</p>
       <v-tabs
           v-model="tab"
           background-color="transparent"
@@ -32,9 +32,9 @@ export default {
       update: false,
 
       tabsName: [
-        {id: 1, name: 'регистрация', link: '/'},
-        {id: 2, name: 'Отборочный тур', link: '/qualifying'},
-        {id: 3, name: 'Профессионалы', link: '/pro'},
+        {id: 1, name: this.$t('memberList10'), link: '/'},
+        {id: 2, name: this.$t('memberList11'), link: '/qualifying'},
+        {id: 3, name: this.$t('memberList12'), link: '/pro'},
       ]
     }
   },

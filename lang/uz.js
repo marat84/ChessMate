@@ -1,11 +1,7 @@
 export default {
-  defaultTitle: "Geointellect.uz",
+  defaultTitle: "chess.tashkent.uz",
 
-  altDepartament: "Логотип департамента",
-  altHokimligi: "Логотип хокимията города ташкент",
   hokimligiSite: "Toshkent shahar hokimligi sayti",
-  navExpanded: "Развернуть меню",
-  navExpand: "Свернуть меню",
 
   errorPage1: "Sahifa topilmadi",
   errorPage2: "Xatolik ro'y berdi",

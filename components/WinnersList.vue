@@ -10,7 +10,7 @@
           <p class="winner-item__status mb-0">{{ item.status }}</p>
         </div>
         <div class="winner-item__prize-wrap">
-          <span class="winner-item__text">Призовые</span>
+          <span class="winner-item__text">{{ $t('prizeText') }}</span>
           <strong class="winner-item__prize">{{ item.prize }}</strong>
         </div>
       </article>

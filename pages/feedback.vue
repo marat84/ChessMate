@@ -1,6 +1,6 @@
 <template>
   <section class="form-section g-container-narrow">
-    <h2 class="inner-title mb-90">Обратная связь</h2>
+    <h2 class="inner-title mb-90">{{ $t('nav7') }}</h2>
     <form @submit.prevent="submit">
       <FormInput
           class="mb-60"

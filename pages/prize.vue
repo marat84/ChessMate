@@ -3,8 +3,8 @@
     <div class="inner-image-wrap mb-50">
       <img class="inner-image" src="/images/prize-bg.jpg" alt="Фон" width="3840" height="1120" role="presentation" aria-hidden="true">
       <h2 class="inner-title mt-0">tashkent open</h2>
-      <p class="inner-light-text">ПРИЗОВОЙ ФОНД</p>
-      <strong class="prize-color prize-color--silver prize-text-big">330 000 000 сум</strong>
+      <p class="inner-light-text">{{ $t('nav4') }}</p>
+      <strong class="prize-color prize-color--silver prize-text-big">{{ $t('season9') }}</strong>
     </div>
 
     <div class="g-container mb-65">

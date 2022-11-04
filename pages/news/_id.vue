@@ -17,7 +17,7 @@
       </div>
     </section>
     <aside class="news-aside">
-      <h3 class="inner-title-mini">другие новости</h3>
+      <h3 class="inner-title-mini">{{ $t('otherNews') }}</h3>
 
       <ul class="dlist pl-0 aside-news-list">
         <li v-for="item in asideNews" :key="item.id">

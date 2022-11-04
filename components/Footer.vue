@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="g-container-wide">
       <div class="footer__top-wrap">
-        <HeaderNav :isFooter="true"></HeaderNav>
+        <HeaderNav :isFooter="true" v-if="!$vuetify.breakpoint.smAndDown"></HeaderNav>
 
         <div class="footer-info-wrap">
           <Phone :phone="'+99897 000 00 00'"></Phone>
@@ -24,9 +24,7 @@
       </a>
     </div>
     <p class="footer__bottom mb-0 g-container-wide">
-      При полном или частичном использовании и цитировании материалов, опубликованных на сайте
-      <a href="https:// сhess.tashkent.uz" target="_blank" rel="nofollow">сhess.tashkent.uz</a>
-      , ссылка обязательна
+      {{ $t('footerBottom') }}
     </p>
   </footer>
 </template>
@@ -48,6 +46,14 @@
   display: grid;
   grid-gap: rem(24);
 
+  @media #{$smAndDown} {
+    width: 100%;
+    padding-top: 24px;
+    margin-top: 24px;
+
+    border-top: 2px solid #3E4142;
+  }
+
   & a {
     &:hover {
       opacity: 0.6;
@@ -67,6 +73,15 @@
   padding-bottom: rem(8);
   margin-top: rem(48);
 
+  @media #{$smAndDown} {
+    margin-top: 24px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
   & > a {
     border-bottom: 0.5px solid darken(white, 30%);
     padding-bottom: 1px;
@@ -84,6 +99,16 @@
   display: flex;
   align-items: center;
   margin-top: rem(48);
+
+  @media #{$smAndDown} {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 24px;
+
+    & > * {
+      margin: 12px 0;
+    }
+  }
 }
 
 .footer-hokimligi {

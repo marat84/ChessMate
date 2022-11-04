@@ -1,37 +1,13 @@
 <template>
   <section class="mt-16">
     <div class="g-container-wide mb-60">
-      <h2 class="visually-hidden">регистрация</h2>
-      <p class="mb-10">
-        Все желающие могут принять участие на соревновании,
-        <br>
-        путём регистрации через
-        <a class="underline-link" href="https://t.me/uzshaxmatbot" target="_blank">@uzshaxmatbot</a>
-        с 24 по 31 октября 2022 года.
-        <br>
+      <h2 class="visually-hidden">{{ $t('memberList10') }}</h2>
+      <p v-html="$t('memberList1')" class="mb-10">
       </p>
-      <p class="mb-10">
-        Желающие шахматисты из зарубежных стран могут участвовать
-        <br>
-        в профессиональных мужских группах FIDE GM, IM, FM и профессиональных женских
-        <br>
-        шахматных группах FIDE WGM, WIM, WFM.
+      <p v-html="$t('memberList2')" class="mb-10">
       </p>
 
-      <p>
-        Во второй этап, по рекомендации
-        <br>
-        «Шахматного клуба глухих», будут включены 15 парашахматистов с ограниченными
-        <br>
-        возможностями и с инвалидностью, с высоким рейтингом ФИДЕ
-        <br>
-        из Республики Каракалпакстан, областей республики и города Ташкента.
-        <br>
-        В случае превышения норм количества участников в профессиональной
-        <br>
-        мужской и женской группах, определенных данным Положением,
-        <br>
-        будут отобраны шахматисты с высоким рейтингом.
+      <p v-html="$t('memberList3')">
       </p>
     </div>
 
@@ -40,25 +16,25 @@
         <template #search>
           <FormInput
               id="filter-search"
-              label="Введите ID или ФИО участника"
+              :label="$t('memberList4')"
               v-model="filterSearch"
               :modelValue="filterSearch"
           ></FormInput>
         </template>
 
-<!--        <template #select-1>
+        <template #select-1>
           <div class="member-select">
             <v-autocomplete
                 v-model="filterSex"
                 :items="[
-                  {id: 1, value: 'male', name:'Мужчина'},
-                  {id: 2, value: 'female', name:'Женщина'}
+                  {id: 1, value: 'male', name: $t('sex1')},
+                  {id: 2, value: 'female', name: $t('sex2')}
                 ]"
                 item-value="value"
                 :item-text="'name'"
-                no-data-text="Нет данных"
-                placeholder="Для поиска начните писать"
-                label="Пол участника"
+                :no-data-text="$t('memberList5')"
+                :placeholder="$t('memberList6')"
+                :label="$t('memberList7')"
                 background-color="transparent"
                 dark
                 height="3.5rem"
@@ -77,9 +53,9 @@
                 ]"
                 item-value="value"
                 :item-text="'name'"
-                no-data-text="Нет данных"
-                placeholder="Для поиска начните писать"
-                label="Все страны"
+                :no-data-text="$t('memberList5')"
+                :placeholder="$t('memberList6')"
+                :label="$t('memberList8')"
                 background-color="transparent"
                 dark
                 height="3.5rem"
@@ -98,16 +74,16 @@
                 ]"
                 item-value="value"
                 :item-text="'name'"
-                no-data-text="Нет данных"
-                placeholder="Для поиска начните писать"
-                label="Район"
+                :no-data-text="$t('memberList5')"
+                :placeholder="$t('memberList6')"
+                :label="$t('memberList9')"
                 background-color="transparent"
                 dark
                 height="3.5rem"
             >
             </v-autocomplete>
           </div>
-        </template>-->
+        </template>
       </MembersTablesFilter>
 
       <MembersTablesAmature></MembersTablesAmature>

@@ -6,7 +6,7 @@
     ]">
     <li v-for="(item, index) in data" :key="item.id">
       <div class="prize-list__content-wrap">
-        <span class="prize-list__header">{{ ++index }} место</span>
+        <span class="prize-list__header">{{ ++index }} {{ $t('challengeNumber') }}</span>
         <strong class="prize-list__body">
           <span class="prize-color">{{ item.prize }}</span>
         </strong>
