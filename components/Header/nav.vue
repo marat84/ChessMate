@@ -7,7 +7,7 @@
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link class="nav-list__link" active-class="nav-list__link--active" :to="localePath('/list')" tabindex="0">
+        <nuxt-link class="nav-list__link" active-class="nav-list__link--active" :to="localePath('/lists')" tabindex="0">
           Список участников
         </nuxt-link>
       </li>

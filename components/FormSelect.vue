@@ -2,20 +2,18 @@
   <div class="form-item">
     <label :for="id" :class="['form-item__label', {'form-item__label--filled' : modelValue.length}]" v-if="label">{{ label }}</label>
     <slot :id="id">
-      <input
+      <select
           :class="['form-item__input', ...wrapClass]"
-          :type="type"
           :name="id"
           :id="id"
           :value='modelValue'
-          :placeholder="placeholder"
           :disabled="disabled"
           :required="required"
-          :readonly="readonly"
-          :minlength="minLength"
           @change='$emit("change", $event.target.value)'
           @input='$emit("input", $event.target.value)'
       >
+        <option :value="item.value" v-for="item in options" :key="item.id">{{ item.name }}</option>
+      </select>
     </slot>
   </div>
 </template>
@@ -23,6 +21,7 @@
 <script>
 export default {
   props: {
+    options: Array,
     id: {
       type: String,
       required: true,

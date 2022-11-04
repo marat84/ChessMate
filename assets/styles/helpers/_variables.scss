@@ -7,6 +7,7 @@ $md-and-up: map-get($display-breakpoints, 'md-and-up');
 $sm-and-down: map-get($display-breakpoints, 'sm-and-down');
 $smOnly: map-get($display-breakpoints, 'sm-only');
 $sm-and-up: map-get($display-breakpoints, 'sm-and-up');
+$smAndDown: map-get($display-breakpoints, 'sm-and-down');
 $xsOnly: map-get($display-breakpoints, 'xs-only');
 $lg-and-up: map-get($display-breakpoints, 'lg-and-up');
 $lg-and-down: map-get($display-breakpoints, 'lg-and-down');

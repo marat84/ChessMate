@@ -82,7 +82,7 @@ export default {
     '~/plugins/MyPlugins/getStatusError.js',
     '~/plugins/MyPlugins/prettyDate.js',
     '~/plugins/MyPlugins/addClassModification.js',
-    '~/plugins/MyPlugins/errorHandler.js',
+    '~/plugins/MyPlugins/errorHandler.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -163,6 +163,9 @@ export default {
 
   router: {
     scrollBehavior: function (to, from, savedPosition) {
+      if (to.path.includes('/lists/'))
+        return false;
+
       return {x: 0, y: 0}
     }
   },
