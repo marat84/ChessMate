@@ -1,5 +1,30 @@
 export const state = () => ({
-  data: [],
+  data: [
+    {
+      id: 1,
+      icon: '/images/partner-1.svg',
+    },
+    {
+      id: 2,
+      icon: '/images/partner-2.svg',
+    },
+    {
+      id: 3,
+      icon: '/images/partner-3.svg',
+    },
+    {
+      id: 4,
+      icon: '/images/partner-4.svg',
+    },
+    {
+      id: 5,
+      icon: '/images/partner-5.svg',
+    },
+    {
+      id: 6,
+      icon: '/images/partner-6.svg',
+    },
+  ],
   error: '',
 });
 
@@ -14,10 +39,10 @@ export const mutations = {
 };
 
 export const actions = {
-  async fetch({commit}) {
-    await this.$axios.$get(`/ru/api/partners/`)
+  /*async fetch({commit}) {
+    await this.$axios.$get(`/api/main-page`)
       .then((response) => {
-        commit('setData', response.results);
+        commit('setData', response.data);
       })
       .catch(error => {
         if (error.response) {
@@ -32,7 +57,7 @@ export const actions = {
 
         console.error(error);
       });
-  },
+  },*/
 };
 
 export const getters = {

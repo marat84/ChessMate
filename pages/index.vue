@@ -17,13 +17,13 @@
 
     <MainPageSeason class="mb-95"></MainPageSeason>
 
-    <section class="section-news g-container-wideLeft">
+    <section class="section-news g-container-wideLeft" v-if="news.results && news.results.length">
       <h2 class="main-section-title">{{ $t('nav6') }}</h2>
 
       <MainTinySlider
           :options="{...options, controlsContainer: '.js-slider-control-container' + 1}"
           :addClass="'js-slider-control-container' + 1"
-          :contents="news"
+          :contents="news.results"
       >
         <template v-slot:default="slotProps">
           <NewsItem :data="slotProps.item"></NewsItem>
@@ -32,12 +32,12 @@
 
     </section>
 
-    <section class="section-partners g-container-wide mb-95">
+    <section class="section-partners g-container-wide mb-95" v-if="partners && partners.length">
       <h2 class="main-section-title">{{ $t('mainText4') }}</h2>
       <Partners :data="partners"></Partners>
     </section>
 
-    <section class="section-news g-container-wideLeft">
+    <section class="section-news g-container-wideLeft" v-if="gallery && gallery.length">
       <h2 class="main-section-title">{{ $t('mainText5') }}</h2>
 
       <MainTinySlider
@@ -79,54 +79,41 @@ export default {
         rewind: true,
         nav: false,
       },
-
-      news: [
-        {
-          id: 1,
-          image: '/images/news-1.jpg',
-        },
-        {
-          id: 2,
-          image: '/images/news-2.jpg',
-        },
-        {
-          id: 3,
-          image: '/images/news-1.jpg',
-        },
-        {
-          id: 4,
-          image: '/images/news-2.jpg',
-        },
-      ],
-
-      gallery: [
-        {
-          id: 1,
-          image: '/images/gallery-1.png',
-        },
-        {
-          id: 2,
-          image: '/images/gallery-2.png',
-        },
-        {
-          id: 3,
-          image: '/images/gallery-1.png',
-        },
-        {
-          id: 4,
-          image: '/images/gallery-2.png',
-        },
-        {
-          id: 5,
-          image: '/images/gallery-1.png',
-        },
-      ]
     }
+  },
+
+  async fetch() {
+    if (this.$store.getters['news/getData']?.length === 0)
+      await this.$store.dispatch('news/fetch');
+
+    if (this.$store.getters['partners/getData']?.length === 0)
+      await this.$store.dispatch('partners/fetch');
+
+    if (this.$store.getters['gallery/getData']?.length === 0)
+      await this.$store.dispatch('gallery/fetch');
   },
 
   computed: {
     partners() {
       return this.$store.getters['partners/getData'];
+    },
+
+    news() {
+      return this.$store.getters['news/getData'];
+    },
+
+    gallery() {
+      return this.$store.getters['gallery/getData'];
+    },
+
+    newsError() {
+      return this.$store.getters['news/getError']
+    }
+  },
+
+  watch: {
+    newsError(e) {
+      this.$errorHandler(e);
     }
   }
 }

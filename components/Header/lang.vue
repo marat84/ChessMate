@@ -2,8 +2,8 @@
   <div class="lang-wrap">
     <span class="lang-current">{{ currentLang }}</span>
     <ul class="dlist lang-list pl-0">
-      <li v-if="this.$i18n.locale !== 'ru'">
-        <nuxt-link :to="switchLocalePath('ru')" class="lang-list__link" lang="ru">Русский</nuxt-link>
+      <li v-if="this.$i18n.locale !== 'rus'">
+        <nuxt-link :to="switchLocalePath('rus')" class="lang-list__link" lang="ru">Русский</nuxt-link>
       </li>
       <li v-if="this.$i18n.locale !== 'uz'">
         <nuxt-link :to="switchLocalePath('uz')" class="lang-list__link" lang="uz">O‘zbekcha</nuxt-link>

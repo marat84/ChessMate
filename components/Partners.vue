@@ -2,8 +2,10 @@
   <ul class="dlist pl-0 partners-list">
     <li v-for="item in data" :key="item.id">
       <article class="partner-item">
-        <h3 class="visually-hidden">Хокимият города ташкент</h3>
-        <img :src="item['icon']" :alt="'partner-' + item.id">
+        <a :href="item['link']" target="_blank" class="partner-item__link">
+          <h3 class="visually-hidden">{{ item['name'] }}</h3>
+          <img :src="item['file']" :alt="'partner-' + item.id">
+        </a>
       </article>
     </li>
   </ul>
@@ -48,6 +50,12 @@ export default {
   @media #{$smAndDown} {
     padding: 30px;
     min-height: 120px;
+  }
+}
+
+.partner-item__link {
+  &:hover {
+    opacity: 0.6;
   }
 }
 </style>

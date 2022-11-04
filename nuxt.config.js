@@ -1,5 +1,5 @@
-const defaultLang = 'ru';
-const mainUrl = 'https://chess.tashkent.uz/';
+const defaultLang = 'rus';
+const mainUrl = 'http://chess.tashkent.local';
 
 let defaultTitle = 'Tashkent open - международный шахматный турнир';
 let defaultDesc = 'Сайт посвященный международному шахматному турниру проходящему в городе Ташкенте при содействии хокимията города';
@@ -90,7 +90,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify'
   ],
 
   vuetify: {
@@ -115,7 +115,7 @@ export default {
 
   i18n: {
     locales: [
-      {code: 'ru', file: "ru.js"},
+      {code: 'rus', file: "rus.js"},
       {code: 'uz', file: "uz.js"}
     ],
     defaultLocale: defaultLang,
@@ -136,7 +136,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://api.geointellect.uz'
+    baseURL: mainUrl
     // credentials: true,
   },
 

@@ -74,5 +74,11 @@ export default ({app, $base64}, inject) => {
     isBetween(date, min, max) {
       return (date.getTime() >= min.getTime() && date.getTime() <= max.getTime())
     },
+    reLang() {
+      switch (app.i18n.locale) {
+        case 'rus':
+          return 'ru';
+      }
+    }
   }))
 }

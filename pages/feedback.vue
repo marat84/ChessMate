@@ -32,7 +32,8 @@
       <div class="form-item form-item--textarea mb-60">
         <label for="add-message" :class="['form-item__label', {'form-item__label--filled' : form.description.length}]">{{ $t('feedbackText4') }}</label>
         <textarea id="add-message" class="form-item__input" v-model="form.description" maxlength="1200"></textarea>
-        <div class="textarea-count-length">{{ $t('feedbackText5') }} {{ 1200 - form.description.length }} {{ $t('feedbackText6') }}</div>
+        <div class="textarea-count-length" v-if="$i18n.locale === 'rus'">{{ $t('feedbackText5') }} {{ 1200 - form.description.length }} {{ $t('feedbackText6') }}</div>
+        <div class="textarea-count-length" v-else>{{ 1200 - form.description.length }} {{ $t('feedbackText5') }}  {{ $t('feedbackText6') }}</div>
       </div>
 
       <div class="files-upload-wrap mb-50">

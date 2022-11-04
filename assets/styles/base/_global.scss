@@ -100,6 +100,7 @@ textarea {
   margin-top: rem(120);
 
   @media #{$smAndDown} {
+    font-size: 48px;
     margin-top: calc(var(--header-height) + 50px);
   }
 }

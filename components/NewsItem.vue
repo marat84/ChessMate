@@ -1,13 +1,15 @@
 <template>
   <article :class="['news-item', {'news-item--inner' : isInner}, {'news-item--first' : isFirst}, {'news-item--mini' : isMini}]">
-    <span class="news-item__inner-hr" v-show="isInner && !isFirst"></span>
+    <span class="news-item__inner-hr" v-show="isInner && (!isFirst || $vuetify.breakpoint.smAndDown)"></span>
     <div>
       <h3 class="news-item__title">
-        <nuxt-link :to="localePath('/news' + '/' + data.id)" class="news-item__link">
-          Непомнящий остался на третьем месте в рейтинге FIDE
+        <nuxt-link :to="localePath('/news' + '/' + data['id'])" class="news-item__link">
+          <!--          {{ data[`title_${$utils.reLang()}`] }} -->Непомнящий остался на третьем месте в рейтинге FIDE
         </nuxt-link>
       </h3>
+      <!--      <p class="news-item__desc">{{ data[`description_${$utils.reLang()}`] }}</p>-->
       <p class="news-item__desc">Узбекский шахматист Джавахир Синдаров остался на третьем месте в рейтинге ФИДЕ</p>
+      <!--      <time class="news-item__date">{{ $prettyDate(data['created_at']) }}</time>-->
       <time class="news-item__date">08.11.2021</time>
     </div>
     <img class="news-item__img" :src="data['image']" alt="news-1">
@@ -21,7 +23,7 @@ export default {
     isInner: Boolean,
     isFirst: Boolean,
     isMini: Boolean,
-  }
+  },
 }
 </script>
 
@@ -46,6 +48,25 @@ export default {
 
     .news-item__title {
       margin-top: rem(24);
+
+      @media #{$smAndDown} {
+        font-size: 24px;
+        line-height: 1.33;
+      }
+    }
+
+    .news-item__desc {
+      @media #{$smAndDown} {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    }
+
+    .news-item__date {
+      @media #{$smAndDown} {
+        font-size: 14px;
+        line-height: 1.71;
+      }
     }
   }
 
@@ -66,37 +87,40 @@ export default {
   }
 
   &--first {
-    flex-direction: row;
-    align-items: flex-start;
-    margin-bottom: rem(72);
+    @media #{$md-and-up} {
+      flex-direction: row;
+      align-items: flex-start;
+      margin-bottom: rem(72);
 
-    .news-item__title {
-      margin-top: 0;
-    }
+      .news-item__title {
+        margin-top: 0;
+      }
 
-    & > div {
-      width: 50%;
-    }
+      & > div {
+        width: 50%;
+      }
 
-    .news-item__img {
-      flex-grow: 1;
-      width: 50%;
-      object-fit: cover;
-      margin-right: rem(24);
-      margin-bottom: 0;
-    }
+      .news-item__img {
+        flex-grow: 1;
+        width: 50%;
+        object-fit: cover;
+        margin-right: rem(24);
+        margin-bottom: 0;
+      }
 
-    .news-item__title {
-      max-width: none;
-      font-weight: 700;
-      font-size: rem(56);
-      line-height: 1.29;
-      margin-bottom: rem(24);
-    }
+      .news-item__title {
+        max-width: none;
+        font-weight: 700;
+        font-size: rem(56);
+        line-height: 1.29;
+        margin-bottom: rem(24);
+      }
 
-    .news-item__desc {
-      font-size: rem(32);
-      line-height: 1.25;
+      .news-item__desc {
+        font-size: rem(32);
+        line-height: 1.25;
+      }
+
     }
   }
 

@@ -873,6 +873,14 @@
 .inner-text {
   font-size: rem(24);
   line-height: 1.67;
+
+  & a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .sub-title-inner {
@@ -1090,6 +1098,15 @@
   & > li {
     &:first-child {
       grid-column: 1 / span 2;
+    }
+  }
+
+  @media #{$smAndDown} {
+    grid-template-columns: 1fr;
+    & > li {
+      &:first-child {
+        grid-column: auto;
+      }
     }
   }
 }

@@ -48,67 +48,71 @@ export default {
       sections: [
         {
           id: 1,
-          name: 'Профессиональная мужская группа',
+          name: this.$t('winnersText1'),
           list: [
             {
               id: 1,
-              name: 'мужчины профессионалы',
+              name: this.$t('winnersText5'),
               list: [
                 {
                   id: 1,
-                  prize: '50 000 000 сум',
+                  prize: '50 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 2,
-                  prize: '30 000 000 сум',
+                  prize: '30 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 3,
-                  prize: '20 000 000 сум',
+                  prize: '20 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 4,
-                  prize: '10 000 000 сум',
+                  prize: '10 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 5,
-                  prize: '8 000 000 сум',
+                  prize: '8 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 6,
-                  prize: '6 000 000 сум',
+                  prize: '6 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 7,
-                  prize: '5 000 000 сум',
+                  prize: '5 000 000 ' + this.$t('som'),
                 },
               ]
             },
             {
               id: 1,
-              name: 'Среди ветеранов',
+              name: this.$t('winnersText9'),
               list: [
                 {
                   id: 1,
-                  prize: '4 000 000 сум',
+                  prize: '4 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText10')
                 },
               ]
             },
             {
               id: 1,
-              name: 'Среди молодежи',
+              name: this.$t('winnersText11'),
               list: [
                 {
                   id: 1,
-                  prize: '4 000 000 сум',
+                  prize: '4 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText15'),
                 },
                 {
                   id: 2,
-                  prize: '3 000 000 сум',
+                  prize: '3 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText12'),
                 },
                 {
                   id: 3,
-                  prize: '2 000 000 сум',
+                  prize: '2 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText13'),
                 },
               ]
             }
@@ -116,15 +120,168 @@ export default {
         },
         {
           id: 2,
-          name: 'Профессиональном женская группа',
+          name: this.$t('winnersText2'),
+          list: [
+            {
+              id: 1,
+              name: this.$t('winnersText6'),
+              list: [
+                {
+                  id: 1,
+                  prize: '50 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 2,
+                  prize: '30 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 3,
+                  prize: '20 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 4,
+                  prize: '6 000 000 ' + this.$t('som'),
+                },
+              ]
+            },
+            {
+              id: 2,
+              name: this.$t('winnersText11'),
+              list: [
+                {
+                  id: 1,
+                  prize: '3 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText12'),
+                },
+                {
+                  id: 2,
+                  prize: '2 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText13'),
+                },
+              ]
+            },
+          ]
         },
         {
           id: 3,
-          name: 'Любительская мужская группа',
+          name: this.$t('winnersText3'),
+          list: [
+            {
+              id: 1,
+              name: this.$t('winnersText7'),
+              list: [
+                {
+                  id: 1,
+                  prize: '10 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 2,
+                  prize: '8 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 3,
+                  prize: '5 000 000 ' + this.$t('som'),
+                },
+              ]
+            },
+            {
+              id: 2,
+              name: this.$t('winnersText9'),
+              list: [
+                {
+                  id: 1,
+                  prize: '10 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText10'),
+                },
+              ]
+            },
+            {
+              id: 3,
+              name: this.$t('winnersText11'),
+              list: [
+                {
+                  id: 1,
+                  prize: '4 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText15'),
+                },
+                {
+                  id: 2,
+                  prize: '3 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText12'),
+                },
+                {
+                  id: 3,
+                  prize: '2 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText13'),
+                },
+                {
+                  id: 4,
+                  prize: '1 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText14'),
+                },
+              ]
+            },
+            {
+              id: 4,
+              name: this.$t('winnersText16'),
+              list: [
+                {
+                  id: 1,
+                  prize: '3 000 000 ' + this.$t('som'),
+                },
+              ]
+            },
+          ]
         },
         {
           id: 4,
-          name: 'Любительская женская группа',
+          name: this.$t('winnersText4'),
+          list: [
+            {
+              id: 1,
+              name: this.$t('winnersText8'),
+              list: [
+                {
+                  id: 1,
+                  prize: '10 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 2,
+                  prize: '8 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 3,
+                  prize: '5 000 000 ' + this.$t('som'),
+                },
+              ]
+            },
+            {
+              id: 2,
+              name: this.$t('winnersText11'),
+              list: [
+                {
+                  id: 1,
+                  prize: '4 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText15'),
+                },
+                {
+                  id: 2,
+                  prize: '3 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText12'),
+                },
+                {
+                  id: 3,
+                  prize: '2 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText13'),
+                },
+                {
+                  id: 3,
+                  prize: '1 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText14'),
+                },
+              ]
+            },
+          ]
         },
       ]
     }

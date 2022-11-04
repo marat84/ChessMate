@@ -8,23 +8,17 @@
     </div>
 
     <div class="g-container winners-desc-wrap mb-70">
-      <p>
-        Победители турнира определяются по количеству набранных ими баллов,
-        <br>
-        в случае ничьи учитываются следующие дополнительные показатели:
+      <p v-html="$t('winners1')">
       </p>
 
       <ul class="dlist pl-0 winner-notice-list">
-        <li>встреча между собой (если все участники играли между собой),</li>
-        <li>коэффициент Бухгольца,</li>
-        <li>средний коэффициент Бухгольца,</li>
-        <li>рейтинг перформанс,</li>
-        <li>количество побед</li>
+        <li>{{ $t('winners2') }}</li>
+        <li>{{ $t('winners3') }}</li>
+        <li>{{ $t('winners4') }}</li>
+        <li>{{ $t('winners5') }}</li>
+        <li>{{ $t('winners6') }}</li>
       </ul>
-      <p>
-        Победители и призёры турнира будут награждены призом хокима Ташкента,
-        <br>
-        дипломами, медалями, а также, денежными премиями.
+      <p v-html="$t('winners7')">
       </p>
     </div>
 
@@ -50,7 +44,10 @@
           background-color="transparent"
       >
         <div class="g-container">
-          <WinnersList :data="item.list"></WinnersList>
+          <section v-for="item2 in item.list" :key="item2.id" class="mb-16">
+            <h3 class="inner-title-mini text-center">{{ item2.name }}</h3>
+            <WinnersList :data="item2.list"></WinnersList>
+          </section>
         </div>
       </v-tab-item>
     </v-tabs-items>
@@ -66,82 +63,273 @@ export default {
       sections: [
         {
           id: 1,
-          name: 'Профессиональная мужская группа',
+          name: this.$t('winnersText1'), //Профессиональная мужская группа
           list: [
             {
               id: 1,
-              name: 'Пулатов Мавлонбек мухторжон угли',
-              status: 'Профессионал',
-              prize: '50 000 000 сум',
+              name: this.$t('winnersText5'), //мужчины профессионалы
+              list: [
+                {
+                  id: 1,
+                  name: this.$t('winnersText17'),
+                  prize: '50 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 2,
+                  name: this.$t('winnersText17'),
+                  prize: '30 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 3,
+                  name: this.$t('winnersText17'),
+                  prize: '20 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 4,
+                  name: this.$t('winnersText17'),
+                  prize: '10 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 5,
+                  name: this.$t('winnersText17'),
+                  prize: '8 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 6,
+                  name: this.$t('winnersText17'),
+                  prize: '6 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 7,
+                  name: this.$t('winnersText17'),
+                  prize: '5 000 000 ' + this.$t('som'),
+                },
+              ]
             },
             {
-              id: 2,
-              name: 'Пулатов Мавлонбек мухторжон угли loremмухторжон угли lorem',
-              status: 'Профессионал',
-              prize: '1 000 000 сум',
+              id: 1,
+              name: this.$t('winnersText9'),
+              list: [
+                {
+                  id: 1,
+                  name: this.$t('winnersText17'),
+                  prize: '4 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText10')
+                },
+              ]
             },
             {
-              id: 3,
-              name: 'Пулатов Мавлонбек мухторжон угли',
-              status: 'Профессионал',
-              prize: '50 000 000 сум',
-            },
-            {
-              id: 4,
-              name: 'Пулатов Мавлонбек мухторжон угли',
-              status: 'Профессионал',
-              prize: '50 000 000 сум',
-            },
-            {
-              id: 5,
-              name: 'Пулатов Мавлонбек мухторжон угли',
-              status: 'Профессионал',
-              prize: '50 000 000 сум',
-            },
-            {
-              id: 6,
-              name: 'Пулатов Мавлонбек мухторжон угли',
-              status: 'Профессионал',
-              prize: '50 000 000 сум',
-            },
-            {
-              id: 7,
-              name: 'Пулатов Мавлонбек мухторжон угли',
-              status: 'Профессионал',
-              prize: '50 000 000 сум',
-            },
-            {
-              id: 8,
-              name: 'Пулатов Мавлонбек мухторжон угли',
-              status: 'Профессионал',
-              prize: '50 000 000 сум',
-            },
-            {
-              id: 9,
-              name: 'Пулатов Мавлонбек мухторжон угли',
-              status: 'Профессионал',
-              prize: '50 000 000 сум',
-            },
-            {
-              id: 10,
-              name: 'Пулатов Мавлонбек мухторжон угли',
-              status: 'Профессионал',
-              prize: '50 000 000 сум',
-            },
-
+              id: 1,
+              name: this.$t('winnersText11'),
+              list: [
+                {
+                  id: 1,
+                  name: this.$t('winnersText17'),
+                  prize: '4 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText15'),
+                },
+                {
+                  id: 2,
+                  name: this.$t('winnersText17'),
+                  prize: '3 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText12'),
+                },
+                {
+                  id: 3,
+                  name: this.$t('winnersText17'),
+                  prize: '2 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText13'),
+                },
+              ]
+            }
           ]
         },
         {
           id: 2,
-          name: 'Профессиональном женская группа',
+          name: this.$t('winnersText2'),  //Профессиональная женская группа
+          list: [
+            {
+              id: 1,
+              name: this.$t('winnersText6'), //Женщины профессионалы
+              list: [
+                {
+                  id: 1,
+                  name: this.$t('winnersText17'),
+                  prize: '50 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 2,
+                  name: this.$t('winnersText17'),
+                  prize: '30 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 3,
+                  name: this.$t('winnersText17'),
+                  prize: '20 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 4,
+                  name: this.$t('winnersText17'),
+                  prize: '6 000 000 ' + this.$t('som'),
+                },
+              ]
+            },
+            {
+              id: 2,
+              name: this.$t('winnersText11'),
+              list: [
+                {
+                  id: 1,
+                  name: this.$t('winnersText17'),
+                  prize: '3 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText12'),
+                },
+                {
+                  id: 2,
+                  name: this.$t('winnersText17'),
+                  prize: '2 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText13'),
+                },
+              ]
+            },
+          ]
         },
         {
           id: 3,
-          name: 'Любительская мужская группа',
+          name: this.$t('winnersText3'),  //Любительская мужская группа
+          list: [
+            {
+              id: 1,
+              name: this.$t('winnersText7'),  //Любители мужчины
+              list: [
+                {
+                  id: 1,
+                  name: this.$t('winnersText17'),
+                  prize: '10 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 2,
+                  name: this.$t('winnersText17'),
+                  prize: '8 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 3,
+                  name: this.$t('winnersText17'),
+                  prize: '5 000 000 ' + this.$t('som'),
+                },
+              ]
+            },
+            {
+              id: 2,
+              name: this.$t('winnersText9'),
+              list: [
+                {
+                  id: 1,
+                  name: this.$t('winnersText17'),
+                  prize: '10 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText10'),
+                },
+              ]
+            },
+            {
+              id: 3,
+              name: this.$t('winnersText11'),
+              list: [
+                {
+                  id: 1,
+                  name: this.$t('winnersText17'),
+                  prize: '4 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText15'),
+                },
+                {
+                  id: 2,
+                  name: this.$t('winnersText17'),
+                  prize: '3 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText12'),
+                },
+                {
+                  id: 3,
+                  name: this.$t('winnersText17'),
+                  prize: '2 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText13'),
+                },
+                {
+                  id: 4,
+                  name: this.$t('winnersText17'),
+                  prize: '1 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText14'),
+                },
+              ]
+            },
+            {
+              id: 4,
+              name: this.$t('winnersText16'),
+              list: [
+                {
+                  id: 1,
+                  name: this.$t('winnersText17'),
+                  prize: '3 000 000 ' + this.$t('som'),
+                },
+              ]
+            },
+          ]
         },
         {
           id: 4,
-          name: 'Любительская женская группа',
+          name: this.$t('winnersText4'),  //Любительская женская группа
+          list: [
+            {
+              id: 1,
+              name: this.$t('winnersText8'),  //Любители женщины
+              list: [
+                {
+                  id: 1,
+                  name: this.$t('winnersText17'),
+                  prize: '10 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 2,
+                  name: this.$t('winnersText17'),
+                  prize: '8 000 000 ' + this.$t('som'),
+                },
+                {
+                  id: 3,
+                  name: this.$t('winnersText17'),
+                  prize: '5 000 000 ' + this.$t('som'),
+                },
+              ]
+            },
+            {
+              id: 2,
+              name: this.$t('winnersText11'),
+              list: [
+                {
+                  id: 1,
+                  name: this.$t('winnersText17'),
+                  prize: '4 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText15'),
+                },
+                {
+                  id: 2,
+                  name: this.$t('winnersText17'),
+                  prize: '3 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText12'),
+                },
+                {
+                  id: 3,
+                  name: this.$t('winnersText17'),
+                  prize: '2 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText13'),
+                },
+                {
+                  id: 3,
+                  name: this.$t('winnersText17'),
+                  prize: '1 000 000 ' + this.$t('som'),
+                  notice: this.$t('winnersText14'),
+                },
+              ]
+            },
+          ]
         },
       ]
     }

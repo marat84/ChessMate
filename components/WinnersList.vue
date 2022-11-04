@@ -1,13 +1,13 @@
 <template>
   <ol class="dlist pl-0 winners-list">
-    <li v-for="(item, index) in data" :key="item.id">
+    <li v-for="(item, index) in data" :key="item.id" :class="{'gold-li' : item.notice}">
       <article class="winner-item">
-        <div class="winner-item__number">
-          <span>{{ ++index }}</span>
+        <div :class="['winner-item__number']">
+          <span>{{ (item.notice) ? 1 : ++index }}</span>
         </div>
         <div class="winner-item__title-wrap">
           <h3 class="winner-item__title">{{ item.name }}</h3>
-          <p class="winner-item__status mb-0">{{ item.status }}</p>
+          <p class="winner-item__status mb-0">{{ item.notice }}</p>
         </div>
         <div class="winner-item__prize-wrap">
           <span class="winner-item__text">{{ $t('prizeText') }}</span>
@@ -35,6 +35,7 @@ export default {
       margin-bottom: 0;
     }
 
+    &.gold-li,
     &:nth-child(1) {
       .winner-item__number {
         color: #57462D;
@@ -42,14 +43,14 @@ export default {
       }
     }
 
-    &:nth-child(2) {
+    &:not(.gold-li):nth-child(2) {
       .winner-item__number {
         color: #162036;
         background: linear-gradient(360deg, #50596C 0%, #9EA7B8 54.4%, #4C5569 100%), #2E2E34;
       }
     }
 
-    &:nth-child(3) {
+    &:not(.gold-li):nth-child(3) {
       .winner-item__number {
         color: #311D2C;
         background: linear-gradient(360deg, #5C4548 0%, #C1A393 54.4%, #5A4447 100%), #2E2E34;
