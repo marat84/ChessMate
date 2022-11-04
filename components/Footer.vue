@@ -23,8 +23,8 @@
         </p>
       </a>
     </div>
-    <p class="footer__bottom mb-0 g-container-wide">
-      {{ $t('footerBottom') }}
+    <p class="footer__bottom mb-0 g-container-wide" v-html="$t('footerBottom')">
+
     </p>
   </footer>
 </template>
@@ -33,6 +33,11 @@
 .footer {
   margin-top: rem(120);
   padding-top: rem(48);
+
+  @media #{$smAndDown} {
+    margin-top: 30px;
+    padding-top: 0;
+  }
 }
 
 .footer__top-wrap {

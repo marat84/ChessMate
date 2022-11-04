@@ -26,6 +26,11 @@ export default {
   & > li {
 
   }
+
+  @media #{$smAndDown} {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+  }
 }
 
 .partner-item {
@@ -36,7 +41,13 @@ export default {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 10px;
 
   filter: grayscale(100);
+
+  @media #{$smAndDown} {
+    padding: 30px;
+    min-height: 120px;
+  }
 }
 </style>

@@ -29,6 +29,10 @@
     }
   }
 
+  @media #{$smAndDown} {
+    height: 200px;
+  }
+
 }
 
 .flip-card__content {

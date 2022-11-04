@@ -99,6 +99,10 @@ export default {
       line-height: 1.25;
     }
   }
+
+  @media #{$smAndDown} {
+    padding-top: 15px;
+  }
 }
 
 .news-item__inner-hr {
@@ -130,6 +134,11 @@ export default {
   @media #{$lg-and-down} {
     max-width: none;
   }
+
+  @media #{$smAndDown} {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 
 .news-item__desc {
@@ -141,6 +150,11 @@ export default {
 
   @media #{$lg-and-down} {
     max-width: none;
+    margin-bottom: 8px !important;
+  }
+
+  @media #{$smAndDown} {
+    font-size: 14px;
   }
 }
 
@@ -148,6 +162,11 @@ export default {
   font-weight: 400;
   font-size: rem(20);
   line-height: 1.2;
+
+  @media #{$smAndDown} {
+    font-size: 14px;
+    line-height: 1.33;
+  }
 }
 
 .news-item__img {

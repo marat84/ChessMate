@@ -52,6 +52,10 @@ export default {
     width: 100%;
     height: 2px;
     background-color: #3E4142;
+
+    @media #{$smAndDown} {
+      left: 100px;
+    }
   }
 
   & > li {
@@ -62,6 +66,10 @@ export default {
     &:first-child {
       margin-left: 0;
     }
+  }
+
+  @media #{$smAndDown} {
+    margin-top: 30px;
   }
 }
 
@@ -81,6 +89,16 @@ export default {
 
   &:active {
     transform: scale(0.85);
+  }
+
+  @media #{$smAndDown} {
+    width: 56px;
+    height: 56px;
+
+    & svg {
+      width: 17px;
+      height: 17px;
+    }
   }
 }
 </style>

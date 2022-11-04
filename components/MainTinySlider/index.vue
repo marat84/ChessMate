@@ -99,5 +99,9 @@ export default {
 .inner-slider-wrap {
   position: relative;
   margin-bottom: rem(90);
+
+  @media #{$smAndDown} {
+    margin-bottom: 30px;
+  }
 }
 </style>

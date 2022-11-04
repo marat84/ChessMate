@@ -79,7 +79,7 @@
               <h3 class="season-front-card__title season-front-card__title--color">{{ $t('season15') }}</h3>
               <div class="season-front-card__wrap">
                 <span class="season-front-info season-front-info--icon">
-                  <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z" fill="#D43C12"/><path d="M12 13a3 3 0 100-6 3 3 0 000 6z" fill="#fff"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z" fill="#D43C12"/><path d="M12 13a3 3 0 100-6 3 3 0 000 6z" fill="#fff"/></svg>
                   {{ $t('season16') }}
                 </span>
                 <p class="season-front-date mb-0" v-html="$t('season17')">
@@ -90,7 +90,7 @@
           <template #back>
             <div class="season-back-card">
               <span class="season-front-info season-front-info--icon">
-                <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z" fill="#D43C12"/><path d="M12 13a3 3 0 100-6 3 3 0 000 6z" fill="#fff"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z" fill="#D43C12"/><path d="M12 13a3 3 0 100-6 3 3 0 000 6z" fill="#fff"/></svg>
                 {{ $t('season16') }}
               </span>
               <h3 class="season-front-date mb-0" v-html="$t('season17')">

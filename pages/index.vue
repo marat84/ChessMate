@@ -69,13 +69,13 @@ export default {
     return {
       options: {
         items: 3,
-        fixedWidth: 686,
+        fixedWidth: (this.$vuetify.breakpoint.smAndDown) ? 200 : 686,
         rewind: true,
         nav: false,
       },
       optionsGallery: {
         items: 3,
-        fixedWidth: 686,
+        fixedWidth: (this.$vuetify.breakpoint.smAndDown) ? 200 : 686,
         rewind: true,
         nav: false,
       },
