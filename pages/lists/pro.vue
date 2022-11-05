@@ -1,10 +1,10 @@
 <template>
-  <section class="mt-16">
+  <section class="members-section">
     <div class="g-container-wide mb-60">
       <h2 class="visually-hidden">{{ $t('memberList12') }}</h2>
-      <p class="mb-10" v-html="$t('memberList14')">
+      <p class="mb-10 mobile-no-br" v-html="$t('memberList14')">
       </p>
-      <p class="mb-10" v-html="$t('memberList15')">
+      <p class="mb-10 mobile-no-br" v-html="$t('memberList15')">
       </p>
     </div>
 
@@ -12,12 +12,30 @@
     <div ref="scrollHere">
       <MembersTablesFilter>
         <template #search>
-          <FormInput
-              id="filter-search"
-              :label="$t('memberList4')"
-              v-model="filterSearch"
-              :modelValue="filterSearch"
-          ></FormInput>
+          <form class="form-item-wrap filter-wrap__search" @submit.prevent="search">
+            <FormInput
+                id="filter-search"
+                type="search"
+                :label="$t('memberList4')"
+                v-model="filterSearch"
+                :modelValue="filterSearch"
+                required
+            ></FormInput>
+
+            <button type="submit" class="form-item-in-button" v-if="!searchFilled">
+              <span class="visually-hidden">{{ $t('searchButton') }}</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button type="button" v-else class="form-item-in-button" @click.prevent="searchReset">
+              <span class="visually-hidden">Удалить введённый текст</span>
+              <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--white)" aria-hidden="true" focusable="false">
+                <path d="M.94.94a1.5 1.5 0 012.12 0L10 7.878l6.94-6.94a1.5 1.5 0 012.12 2.122L12.122 10l6.94 6.94a1.5 1.5 0 01-2.122 2.12L10 12.122l-6.94 6.94a1.5 1.5 0 01-2.12-2.122L7.878 10 .939 3.06a1.5 1.5 0 010-2.12z"/>
+              </svg>
+            </button>
+          </form>
         </template>
 
         <template #select-1>
@@ -34,6 +52,7 @@
                 :placeholder="$t('memberList6')"
                 :label="$t('memberList7')"
                 background-color="transparent"
+                clearable
                 dark
                 height="3.5rem"
             >
@@ -45,16 +64,14 @@
           <div class="member-select">
             <v-autocomplete
                 v-model="filterRegion"
-                :items="[
-                    {id: 1, value: 'UZB', name:'UZB'},
-                    {id: 2, value: 'USA', name:'USA'}
-                ]"
-                item-value="value"
+                :items="country"
+                item-value="id"
                 :item-text="'name'"
                 :no-data-text="$t('memberList5')"
                 :placeholder="$t('memberList6')"
                 :label="$t('memberList8')"
                 background-color="transparent"
+                clearable
                 dark
                 height="3.5rem"
             >
@@ -76,16 +93,14 @@
           <div class="member-select">
             <v-autocomplete
                 v-model="filterStatus"
-                :items="[
-                  {id: 1, value: '02', name:'Grandmaster'},
-                  {id: 2, value: '03', name:'International Master'}
-              ]"
-                item-value="value"
+                :items="degrees"
+                item-value="id"
                 :item-text="'name'"
                 :no-data-text="$t('memberList5')"
                 :placeholder="$t('memberList6')"
                 :label="$t('memberList16')"
                 background-color="transparent"
+                clearable
                 dark
                 height="3.5rem"
             >
@@ -104,13 +119,17 @@
         </template>
       </MembersTablesFilter>
 
-      <MembersTablesPro></MembersTablesPro>
-    </div>
 
+      <div class="member-table__list">
+        <MembersTablesPro :data="membersPro.results" v-if="membersPro.results && membersPro.results.length"></MembersTablesPro>
+        <div v-else class="g-container-wide text-center mt-16">{{ $t('noData') }}</div>
+      </div>
+    </div>
     <v-pagination
+        v-if="(membersPro.results && membersPro.results.length) && membersPro.count > 20"
         v-model="page"
-        :length="5"
-        :total-visible="6"
+        :length="Math.ceil(membersPro.count / 20)"
+        :total-visible="($vuetify.breakpoint.lgAndUp) ? 7 : 6"
         @input="go"
     ></v-pagination>
   </section>
@@ -122,6 +141,8 @@ export default {
   data() {
     return {
       page: 1,
+      loading: false,
+      searchFilled: false,
 
       filterSearch: '',
       filterSex: '',
@@ -129,33 +150,97 @@ export default {
       filterRegion: '',
     }
   },
+
+  async fetch() {
+    const query = this.$route.query;
+
+    await this.$store.dispatch('membersPro/fetch', {
+      add: 'all',
+      page: query.page,
+      gender: this.filterSex,
+    });
+  },
+
   methods: {
     async go(e) {
-      console.log(e);
-      const url = `/lists/pro/?page=${e}`;
-      await this.$router.push(this.localePath(url));
-      // setTimeout(() => {
+      this.$nuxt.$emit('updateTab', 1);
       this.$refs.scrollHere.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-      // }, 500)
-      /*if (e !== this.videoMeta.current_page) {
-        this.loading = true;
-        const url = `/admin/specialist/?page=${e}`;
-        this.page = e;
+      this.loading = true;
+      const url = `/lists/pro/?page=${e}`;
+      this.page = e;
 
-        await this.$store.dispatch('specialists/fetch', {
-          token: this.user.token,
-          page: e
-        });
+      await this.$store.dispatch('membersPro/fetch', {
+        page: e,
+        gender: this.filterSex,
+        name: this.filterSearch,
+        country: this.filterRegion,
+        degree: this.filterStatus,
+      });
 
-        await this.$router.push(this.localePath(url))
+      await this.$router.push(this.localePath(url));
 
-        this.loading = false;
-      }*/
+      this.loading = false;
+    },
+    async search(e) {
+      if (this.searchFilled !== this.filterSearch) {
+        this.searchFilled = this.filterSearch;
+        this.page = 1;
+        await this.$router.push(this.localePath(`/lists/pro`));
+
+        await this.$store.dispatch('membersPro/fetch', {name: this.filterSearch, gender: this.filterSex, country: this.filterRegion, degree: this.filterStatus});
+      }
+    },
+    async searchReset() {
+      this.searchFilled = false;
+      this.filterSearch = '';
+      this.page = 1;
+      await this.$router.push(this.localePath(`/lists/pro`));
+
+      await this.$store.dispatch('membersPro/fetch', {name: this.filterSearch, gender: this.filterSex, country: this.filterRegion, degree: this.filterStatus});
+    }
+  },
+  computed: {
+    country() {
+      return this.$store.getters['country/getData'];
+    },
+    degrees() {
+      const data = this.$store.getters['degree/getData'];
+
+      return data.filter(e => e.name !== '');
+    },
+
+    membersPro() {
+      return this.$store.getters['membersPro/getData'];
+    },
+
+    query() {
+      return this.$route.query;
     }
   },
   watch: {
-    filterSex(e) {
-      console.log(e);
+    async filterSex(e) {
+      this.page = 1;
+      await this.$router.push(this.localePath(`/lists/pro`));
+
+      await this.$store.dispatch('membersPro/fetch', {gender: e, name: this.filterSearch, country: this.filterRegion, degree: this.filterStatus});
+    },
+    async filterRegion(e) {
+      this.page = 1;
+      await this.$router.push(this.localePath(`/lists/pro`));
+
+      await this.$store.dispatch('membersPro/fetch', {name: this.filterSearch, gender: this.filterSex, country: e, degree: this.filterStatus});
+    },
+    async filterStatus(e) {
+      this.page = 1;
+      await this.$router.push(this.localePath(`/lists/pro`));
+
+      await this.$store.dispatch('membersPro/fetch', {name: this.filterSearch, gender: this.filterSex, country: this.filterRegion, degree: e});
+    },
+  },
+
+  mounted() {
+    if (this.$route.query?.page) {
+      this.page = +this.$route.query.page;
     }
   }
 }

@@ -81,10 +81,11 @@ export default {
   }
 
   &--footer {
-    width: vw(1000);
+    //width: vw(1000);
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: rem(24);
+    grid-auto-flow: column;
+    /*grid-template-columns: repeat(4, 1fr);*/
+    grid-gap: rem(10);
 
     & > li {
       margin-right: 0;

@@ -1,36 +1,43 @@
 <template>
-  <section class="mt-16">
+  <section class="members-section">
     <div class="g-container-wide mb-60">
-      <h2 class="visually-hidden">{{ $t('memberList10') }}</h2>
-      <p v-html="$t('memberList1')" class="mb-10">
+      <h2 class="visually-hidden">{{ $t('memberList11') }}</h2>
+      <p v-html="$t('memberList1')" class="mb-10 mobile-no-br">
       </p>
-      <p v-html="$t('memberList2')" class="mb-10">
+      <p v-html="$t('memberList2')" class="mb-10 mobile-no-br">
       </p>
 
-      <p v-html="$t('memberList3')">
+      <p v-html="$t('memberList3')" class="mobile-no-br">
       </p>
     </div>
 
     <div ref="scrollHere">
       <MembersTablesFilter>
         <template #search>
-          <div class="form-item-wrap filter-wrap__search">
+          <form class="form-item-wrap filter-wrap__search" @submit.prevent="search">
             <FormInput
                 id="filter-search"
+                type="search"
                 :label="$t('memberList4')"
                 v-model="filterSearch"
                 :modelValue="filterSearch"
-                :eventSearch="search"
+                required
             ></FormInput>
 
-            <button type="button" class="form-item-in-button" @click="search">
+            <button type="submit" class="form-item-in-button" v-if="!searchFilled">
               <span class="visually-hidden">{{ $t('searchButton') }}</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-          </div>
+            <button type="button" v-else class="form-item-in-button" @click.prevent="searchReset">
+              <span class="visually-hidden">Удалить введённый текст</span>
+              <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--white)" aria-hidden="true" focusable="false">
+                <path d="M.94.94a1.5 1.5 0 012.12 0L10 7.878l6.94-6.94a1.5 1.5 0 012.12 2.122L12.122 10l6.94 6.94a1.5 1.5 0 01-2.122 2.12L10 12.122l-6.94 6.94a1.5 1.5 0 01-2.12-2.122L7.878 10 .939 3.06a1.5 1.5 0 010-2.12z"/>
+              </svg>
+            </button>
+          </form>
 
         </template>
 
@@ -48,6 +55,7 @@
                 :placeholder="$t('memberList6')"
                 :label="$t('memberList7')"
                 background-color="transparent"
+                clearable
                 dark
                 height="3.5rem"
             >
@@ -55,7 +63,7 @@
           </div>
         </template>
 
-        <template #select-2>
+<!--        <template #select-2>
           <div class="member-select">
             <v-autocomplete
                 v-model="filterRegion"
@@ -71,7 +79,7 @@
             >
             </v-autocomplete>
           </div>
-        </template>
+        </template>-->
 
         <!--        <template #select-3>
                   <div class="member-select">
@@ -95,11 +103,14 @@
                 </template>-->
       </MembersTablesFilter>
 
-      <MembersTablesAmature :data="members.results" v-if="members.results && members.results.length"></MembersTablesAmature>
+      <div class="member-table__list">
+        <MembersTablesAmature :data="members.results" v-if="members.results && members.results.length"></MembersTablesAmature>
+        <div v-else class="g-container-wide text-center mt-16">{{ $t('noData') }}</div>
+      </div>
     </div>
 
     <v-pagination
-        v-if="members.results && members.results.length"
+        v-if="(members.results && members.results.length) && members.count > 20"
         v-model="page"
         :length="Math.ceil(members.count / 20)"
         :total-visible="($vuetify.breakpoint.lgAndUp) ? 7 : 6"
@@ -115,6 +126,7 @@ export default {
     return {
       page: 1,
       loading: false,
+      searchFilled: false,
 
       filterSearch: '',
       filterSex: '',
@@ -135,6 +147,7 @@ export default {
 
   methods: {
     async go(e) {
+      this.$nuxt.$emit('updateTab', 1);
       this.$refs.scrollHere.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
       this.loading = true;
       const url = `/lists/?page=${e}`;
@@ -152,6 +165,17 @@ export default {
       this.loading = false;
     },
     async search(e) {
+      if (this.searchFilled !== this.filterSearch) {
+        this.searchFilled = this.filterSearch;
+        this.page = 1;
+        await this.$router.push(this.localePath(`/lists`));
+
+        await this.$store.dispatch('members/fetch', {add: 'all', name: this.filterSearch, gender: this.filterSex});
+      }
+    },
+    async searchReset() {
+      this.searchFilled = false;
+      this.filterSearch = '';
       this.page = 1;
       await this.$router.push(this.localePath(`/lists`));
 
@@ -184,6 +208,10 @@ export default {
 
       await this.$store.dispatch('members/fetch', {add: 'all', gender: e});
     },
+
+    filterSearch(e) {
+      console.log(e);
+    }
   },
 
   mounted() {

@@ -12,7 +12,7 @@
       </div>
     </div>
     <button type="button" @click="$nuxt.$emit(eventName)" class="close-modal" :title="$t('close')">
-      <svg-icon name="close" width="16" height="16" fill="var(--white)" aria-hidden="true" focusable="false"></svg-icon>
+      <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--white)" aria-hidden="true" focusable="false"><path d="M.94.94a1.5 1.5 0 012.12 0L10 7.878l6.94-6.94a1.5 1.5 0 012.12 2.122L12.122 10l6.94 6.94a1.5 1.5 0 01-2.122 2.12L10 12.122l-6.94 6.94a1.5 1.5 0 01-2.12-2.122L7.878 10 .939 3.06a1.5 1.5 0 010-2.12z"/></svg>
     </button>
   </div>
 </template>

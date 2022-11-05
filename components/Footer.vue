@@ -1,15 +1,10 @@
 <template>
   <footer class="footer">
-    <div class="g-container-wide">
+<!--    <div class="g-container-wide">
       <div class="footer__top-wrap">
         <HeaderNav :isFooter="true" v-if="!$vuetify.breakpoint.smAndDown"></HeaderNav>
-
-        <div class="footer-info-wrap">
-          <Phone :phone="'+99897 000 00 00'"></Phone>
-          <a href="mailto:help@chess-tashkent.uz">help@chess-tashkent.uz</a>
-        </div>
       </div>
-    </div>
+    </div>-->
     <div class="footer__mid-wrap g-container-wide">
       <a class="footer-hokimligi" href="https://www.tashkent.uz/" target="_blank">
         <img src="/images/hokimligi.png" :alt="$t('altHokimligi')" width="43" height="46" class="disabled-theme">
@@ -22,7 +17,13 @@
           <span>{{ $t("footerText5") }}</span>
         </p>
       </a>
+
+        <div class="footer-info-wrap">
+          <!--          <Phone :phone="'+99897 000 00 00'"></Phone>-->
+          <a href="mailto:chess@tashkent.uz">chess@tashkent.uz</a>
+        </div>
     </div>
+
     <p class="footer__bottom mb-0 g-container-wide" v-html="$t('footerBottom')">
 
     </p>
@@ -50,8 +51,10 @@
   font-size: rem(18);
   display: grid;
   grid-gap: rem(24);
+  margin-left: auto;
 
   @media #{$smAndDown} {
+    text-align: center;
     width: 100%;
     padding-top: 24px;
     margin-top: 24px;
@@ -79,7 +82,7 @@
   margin-top: rem(48);
 
   @media #{$smAndDown} {
-    margin-top: 24px;
+    margin-top: 14px;
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;

@@ -99,7 +99,7 @@ export default {
     <br>
     будут отобраны шахматисты с высоким рейтингом.
   `,
-  memberList4: "Введите ID или ФИО участника",
+  memberList4: "Введите ФИО участника",
   memberList5: "Нет данных",
   memberList6: "Для поиска начните писать",
   memberList7: "Пол участника",
@@ -194,6 +194,8 @@ export default {
   winnersText15: `(до 20 лет)`,
   winnersText16: `Среди парашахматистов`,
   winnersText17: `Будет определен по итогам турнира`,
+
+  noData: "Данных нет",
 
   rulesContent: `
 <h2 class="inner-title text-left">ПОЛОЖЕНИЕ МЕЖДУНАРОДНОГО ТУРНИРА ПО ШАХМАТАМ ЗА ПРИЗ ХОКИМА ТАШКЕНТА TASHKENT OPEN

@@ -15,12 +15,13 @@ export const mutations = {
 
 export const actions = {
   async fetch({commit}, params) {
-    const additionalURL = params.add ? params.add : '';
     const page = params.page ? `?page=${params.page}` : '?page=1';
     const gender = params.gender ? `&gender=${params.gender}` : '';
-    const name = params.name ? `&search_text=${params.name}` : '';
+    const name = params.name ? `&full_name__icontains=${params.name}` : '';
+    const country = params.country ? `&country=${params.country}` : '';
+    const degree = params.degree ? `&degree=${params.degree}` : '';
 
-    await this.$axios.$get(`/ru/api/participants/${additionalURL}${page}${gender}${name}&is_chosen=1`)
+    await this.$axios.$get(`/ru/api/participants/professional/${page}${gender}${name}${country}${degree}`)
       .then((response) => {
         console.log(response);
         commit('setData', response);

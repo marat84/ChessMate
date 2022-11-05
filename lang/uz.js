@@ -98,7 +98,7 @@ export default {
     <br>
     reytingi yuqori shaxmatchilar saralab olinadi.
   `,
-  memberList4: "Ishtirokchining ID raqami yoki FIShini kiriting",
+  memberList4: "Ishtirokchining FIShini kiriting",
   memberList5: "Ma'lumotlar topilmadi",
   memberList6: "Qidiruv",
   memberList7: "Ishtirokchi jinsi",
@@ -193,6 +193,8 @@ export default {
   winnersText15: `(20 yoshgacha)`,
   winnersText16: `Parashaxmatchilar o‘rtasida`,
   winnersText17: `Turnir yakunlanganidan keyin aniqlanadi`,
+
+  noData: "Ma'lumotlar topilmadi",
 
   rulesContent: `
     <h2 class="inner-title text-left">SHAXMAT BO‘YICHA TOSHKENT SHAHAR HOKIMI SOVRINI UCHUN O‘TKAZILADIGAN “TOSHKENT OPEN” XALQARO MUSOBAQASI NIZOMI 

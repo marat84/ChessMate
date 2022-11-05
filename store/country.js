@@ -14,16 +14,10 @@ export const mutations = {
 };
 
 export const actions = {
-  async fetch({commit}, params) {
-    const additionalURL = params.add ? params.add : '';
-    const page = params.page ? `?page=${params.page}` : '?page=1';
-    const gender = params.gender ? `&gender=${params.gender}` : '';
-    const name = params.name ? `&search_text=${params.name}` : '';
-
-    await this.$axios.$get(`/ru/api/participants/${additionalURL}${page}${gender}${name}&is_chosen=1`)
+  async fetch({commit}) {
+    await this.$axios.$get(`/ru/api/participants/country`)
       .then((response) => {
-        console.log(response);
-        commit('setData', response);
+        commit('setData', response.results);
       })
       .catch(error => {
         if (error.response) {
