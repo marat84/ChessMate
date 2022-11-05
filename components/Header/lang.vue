@@ -36,8 +36,10 @@ export default {
   text-align: right;
 
   &:hover .lang-current::after {
-    transform: rotateX(180deg);
-    margin-top: -8px;
+    @media #{$md-and-up} {
+      transform: rotateX(180deg);
+      margin-top: -8px;
+    }
   }
 
   @media #{$smAndDown} {
@@ -52,7 +54,9 @@ export default {
 .lang-wrap:hover .lang-list {
   pointer-events: all;
   opacity: 1;
-  transform: translateY(0) translateX(-50%);
+  @media #{$md-and-up} {
+    transform: translateY(0) translateX(-50%);
+  }
 }
 
 .lang-current {

@@ -39,7 +39,16 @@ export default {
         font-size: rem(112);
         line-height: 1;
         padding: rem(10) rem(135);
+
+        @media #{$smAndDown} {
+          font-size: 40px;
+          padding: 20px;
+        }
       }
+    }
+
+    @media #{$smAndDown} {
+      width: 100%;
     }
   }
 
@@ -54,6 +63,10 @@ export default {
     &:nth-child(2) {
       .prize-list__body {
         padding: rem(10) rem(105);
+
+        @media #{$smAndDown} {
+          padding: 20px;
+        }
       }
     }
   }
@@ -63,6 +76,10 @@ export default {
     &:nth-child(2) {
       .prize-list__body {
         padding: rem(10) rem(105);
+
+        @media #{$smAndDown} {
+          padding: 20px;
+        }
       }
     }
   }
@@ -73,6 +90,10 @@ export default {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+
+  @media #{$smAndDown} {
+    width: 100%;
+  }
 }
 
 .prize-list__header {
@@ -112,5 +133,10 @@ export default {
   line-height: 1;
   border-radius: 0 0 6px 6px;
   background-color: rgba(30, 30, 30, 0.56);
+
+  @media #{$smAndDown} {
+    font-size: 40px;
+    width: 100%;
+  }
 }
 </style>

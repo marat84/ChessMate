@@ -1,18 +1,19 @@
 <template>
   <div>
     <div class="member-tabs-wrap g-container-wide">
-      <p class="inner-title-mini mb-0 mr-8" :class="{'gray-color' : isPro}">{{ $t('memberList17') }}</p>
+      <p class="inner-title-mini mb-0 mr-8 member-tabs-wrap__title" :class="{'gray-color' : isPro}">{{ $t('memberList17') }}</p>
       <v-tabs
           v-model="tab"
           background-color="transparent"
           slider-color="var(--yellow)"
           height="100%"
+          :vertical="$vuetify.breakpoint.smAndDown"
       >
         <v-tab
             v-for="item in tabsName"
             :key="item.id"
             :to="localePath('/lists' + item.link)"
-            exact-active-class="tabs-member-active"
+            exact-active-class="tabs-active"
         >
           <div class="inner-title-mini mb-0">
             {{ item.name }}
@@ -33,10 +34,15 @@ export default {
 
       tabsName: [
         {id: 1, name: this.$t('memberList10'), link: '/'},
-        {id: 2, name: this.$t('memberList11'), link: '/qualifying'},
-        {id: 3, name: this.$t('memberList12'), link: '/pro'},
+        {id: 2, name: this.$t('memberList11'), link: '/qualifying/'},
+        {id: 3, name: this.$t('memberList12'), link: '/pro/'},
       ]
     }
+  },
+
+  async fetch() {
+    if (this.$store.getters['regions/getData']?.length === 0)
+      await this.$store.dispatch('regions/fetch');
   },
 
   computed: {

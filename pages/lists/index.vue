@@ -47,15 +47,12 @@
           <div class="member-select">
             <v-autocomplete
                 v-model="filterRegion"
-                :items="[
-                    {id: 1, value: 'UZB', name:'UZB'},
-                    {id: 2, value: 'USA', name:'USA'}
-                ]"
-                item-value="value"
+                :items="regions"
+                item-value="id"
                 :item-text="'name'"
                 :no-data-text="$t('memberList5')"
                 :placeholder="$t('memberList6')"
-                :label="$t('memberList8')"
+                :label="$t('memberTable2_1')"
                 background-color="transparent"
                 dark
                 height="3.5rem"
@@ -86,12 +83,12 @@
         </template>
       </MembersTablesFilter>
 
-      <MembersTablesAmature></MembersTablesAmature>
+      <MembersTablesAmature :data="members.results" v-if="members.results && members.results.length"></MembersTablesAmature>
     </div>
 
     <v-pagination
         v-model="page"
-        :length="5"
+        :length="Math.floor(members.count / 20)"
         :total-visible="6"
         @input="go"
     ></v-pagination>
@@ -104,6 +101,7 @@ export default {
   data() {
     return {
       page: 1,
+      loading: false,
 
       filterSearch: '',
       filterSex: '',
@@ -111,33 +109,47 @@ export default {
       filterRegion: '',
     }
   },
+
+  async fetch() {
+    await this.$store.dispatch('members/fetch', {add: 'all'});
+  },
+
   methods: {
     async go(e) {
-      console.log(e);
-      const url = `/lists?page=${e}`;
-      await this.$router.push(this.localePath(url));
-      // setTimeout(() => {
       this.$refs.scrollHere.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-      // }, 500)
-      /*if (e !== this.videoMeta.current_page) {
-        this.loading = true;
-        const url = `/admin/specialist/?page=${e}`;
-        this.page = e;
+      this.loading = true;
+      const url = `/lists/?page=${e}`;
+      this.page = e;
 
-        await this.$store.dispatch('specialists/fetch', {
-          token: this.user.token,
-          page: e
-        });
+      await this.$store.dispatch('members/fetch', {
+        add: 'all',
+        page: e,
+      });
 
-        await this.$router.push(this.localePath(url))
+      await this.$router.push(this.localePath(url));
 
-        this.loading = false;
-      }*/
+      this.loading = false;
     }
+  },
+  computed: {
+    regions() {
+      return this.$store.getters['regions/getData'];
+    },
+
+    members() {
+      return this.$store.getters['members/getData'];
+    },
   },
   watch: {
     filterSex(e) {
       console.log(e);
+    }
+  },
+
+  mounted() {
+    if (this.$route.query?.page) {
+      console.log(this.$route.query?.page);
+      this.page = +this.$route.query.page;
     }
   }
 }

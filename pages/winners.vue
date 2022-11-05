@@ -27,6 +27,7 @@
           v-model="tab"
           background-color="transparent"
           slider-color="var(--yellow)"
+          :vertical="$vuetify.breakpoint.smAndDown"
       >
         <v-tab
             v-for="item in sections"

@@ -132,6 +132,7 @@ export default {
 
   memberTable1: "ФИО УЧАСТНИКА",
   memberTable2: "РЕГИОН",
+  memberTable2_1: "Регион",
   memberTable3: "РАЙОН",
   memberTable4: "ПОЛ",
   memberTable5: "РЕГИСТРАЦИЯ",

@@ -13,4 +13,9 @@ body {
     family: $ff;
   }
   line-height: $lh;
+
+  @media #{$smAndDown} {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }

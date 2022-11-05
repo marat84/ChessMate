@@ -9,11 +9,15 @@
           <h3 class="winner-item__title">{{ item.name }}</h3>
           <p class="winner-item__status mb-0">{{ item.notice }}</p>
         </div>
-        <div class="winner-item__prize-wrap">
-          <span class="winner-item__text">{{ $t('prizeText') }}</span>
-          <strong class="winner-item__prize">{{ item.prize }}</strong>
-        </div>
+                <div class="winner-item__prize-wrap" v-if="$vuetify.breakpoint.mdAndUp">
+                  <span class="winner-item__text">{{ $t('prizeText') }}</span>
+                  <strong class="winner-item__prize">{{ item.prize }}</strong>
+                </div>
       </article>
+      <div class="winner-item__prize-wrap" v-if="$vuetify.breakpoint.smAndDown">
+        <span class="winner-item__text">{{ $t('prizeText') }}</span>
+        <strong class="winner-item__prize">{{ item.prize }}</strong>
+      </div>
     </li>
   </ol>
 </template>
@@ -65,6 +69,10 @@ export default {
   overflow: hidden;
   height: rem(200);
   background-color: #181818;
+
+  @media #{$smAndDown} {
+    height: 80px;
+  }
 }
 
 .winner-item__number {
@@ -89,11 +97,22 @@ export default {
     transform: rotateZ(-18deg);
     padding-left: rem(70);
   }
+
+  @media #{$smAndDown} {
+    font-size: 24px;
+    width: 120px;
+    margin-left: -65px;
+    margin-right: 15px;
+  }
 }
 
 .winner-item__title-wrap {
   margin-right: auto;
   margin-left: rem(50);
+
+  @media #{$smAndDown} {
+    margin-left: 15px;
+  }
 }
 
 .winner-item__title {
@@ -102,6 +121,20 @@ export default {
   font-size: rem(48);
   line-height: 1;
   margin-bottom: rem(8);
+
+  @media #{$smAndDown} {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 0;
+    letter-spacing: 0.01em;
+  }
+}
+
+.winner-item__status {
+  @media #{$smAndDown} {
+    font-size: 14px;
+  }
 }
 
 .winner-item__prize-wrap {
@@ -131,15 +164,34 @@ export default {
     background-color: #2E2E34;
     transform: rotateZ(18deg);
   }
+
+  @media #{$smAndDown} {
+    height: 80px;
+    margin-left: 0;
+    width: 100%;
+    padding-left: 85px;
+
+    &::before {
+      display: none;
+    }
+  }
 }
 
 .winner-item__text {
   font-size: rem(32);
   line-height: 1.5;
+
+  @media #{$smAndDown} {
+    font-size: 16px;
+  }
 }
 
 .winner-item__prize {
   font-size: rem(64);
   line-height: 1;
+
+  @media #{$smAndDown} {
+    font-size: 24px;
+  }
 }
 </style>

@@ -13,7 +13,7 @@
 export default {
   data() {
     return {
-      news: [
+      /*news: [
         {
           id: 1,
           image: '/images/inner-news-1.jpg'
@@ -34,7 +34,7 @@ export default {
           id: 5,
           image: '/images/news-2.jpg',
         },
-      ]
+      ]*/
     }
   },
 
@@ -44,9 +44,9 @@ export default {
   },
 
   computed: {
-    /*news() {
+    news() {
       return this.$store.getters['news/getData'];
-    },*/
+    },
 
     error() {
       return this.$store.getters['news/getError'];

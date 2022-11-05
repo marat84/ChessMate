@@ -81,6 +81,7 @@ export default {
 
     '~/plugins/MyPlugins/getStatusError.js',
     '~/plugins/MyPlugins/prettyDate.js',
+    '~/plugins/MyPlugins/prettyDate2.js',
     '~/plugins/MyPlugins/addClassModification.js',
     '~/plugins/MyPlugins/errorHandler.js'
   ],

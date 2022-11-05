@@ -1,6 +1,7 @@
 <template>
   <div class="g-container-wide">
     <table class="member-table">
+      <thead>
       <tr>
         <th class="width-10">№</th>
         <th class="width-10">ID</th>
@@ -10,118 +11,48 @@
         <th>{{ $t('memberTable4') }}</th>
         <th>{{ $t('memberTable5') }}</th>
       </tr>
-      <tr>
-        <td data-th="№" class="width-10">1</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td :data-th="$t('memberTable1')">Пулатов Мавлонбек Мухторжон угли</td>
-        <td :data-th="$t('memberTable2')">Андижанская обл.</td>
-        <td :data-th="$t('memberTable3')">Асакинский</td>
-        <td :data-th="$t('memberTable4')">Мужчина</td>
-        <td :data-th="$t('memberTable5')">25.10.2022, 19:55</td>
-      </tr>
-      <tr>
-        <td data-th="№" class="width-10">2</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td data-th="ФИО УЧАСТНИКА">Пулатов Мавлонбек Мухторжон угли</td>
-        <td data-th="РЕГИОН">Андижанская обл.</td>
-        <td data-th="РАЙОН">Асакинский</td>
-        <td data-th="ПОЛ">Мужчина</td>
-        <td data-th="РЕГИСТРАЦИЯ">25.10.2022, 19:55</td>
-      </tr>
-      <tr>
-        <td data-th="№" class="width-10">1</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td data-th="ФИО УЧАСТНИКА">Пулатов Мавлонбек Мухторжон угли</td>
-        <td data-th="РЕГИОН">Андижанская обл.</td>
-        <td data-th="РАЙОН">Асакинский</td>
-        <td data-th="ПОЛ">Мужчина</td>
-        <td data-th="РЕГИСТРАЦИЯ">25.10.2022, 19:55</td>
-      </tr>
-      <tr>
-        <td data-th="№" class="width-10">2</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td data-th="ФИО УЧАСТНИКА">Пулатов Мавлонбек Мухторжон угли</td>
-        <td data-th="РЕГИОН">Андижанская обл.</td>
-        <td data-th="РАЙОН">Асакинский</td>
-        <td data-th="ПОЛ">Мужчина</td>
-        <td data-th="РЕГИСТРАЦИЯ">25.10.2022, 19:55</td>
-      </tr>
-      <tr>
-        <td data-th="№" class="width-10">1</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td data-th="ФИО УЧАСТНИКА">Пулатов Мавлонбек Мухторжон угли</td>
-        <td data-th="РЕГИОН">Андижанская обл.</td>
-        <td data-th="РАЙОН">Асакинский</td>
-        <td data-th="ПОЛ">Мужчина</td>
-        <td data-th="РЕГИСТРАЦИЯ">25.10.2022, 19:55</td>
-      </tr>
-      <tr>
-        <td data-th="№" class="width-10">2</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td data-th="ФИО УЧАСТНИКА">Пулатов Мавлонбек Мухторжон угли</td>
-        <td data-th="РЕГИОН">Андижанская обл.</td>
-        <td data-th="РАЙОН">Асакинский</td>
-        <td data-th="ПОЛ">Мужчина</td>
-        <td data-th="РЕГИСТРАЦИЯ">25.10.2022, 19:55</td>
-      </tr>
-      <tr>
-        <td data-th="№" class="width-10">1</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td data-th="ФИО УЧАСТНИКА">Пулатов Мавлонбек Мухторжон угли</td>
-        <td data-th="РЕГИОН">Андижанская обл.</td>
-        <td data-th="РАЙОН">Асакинский</td>
-        <td data-th="ПОЛ">Мужчина</td>
-        <td data-th="РЕГИСТРАЦИЯ">25.10.2022, 19:55</td>
-      </tr>
-      <tr>
-        <td data-th="№" class="width-10">2</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td data-th="ФИО УЧАСТНИКА">Пулатов Мавлонбек Мухторжон угли</td>
-        <td data-th="РЕГИОН">Андижанская обл.</td>
-        <td data-th="РАЙОН">Асакинский</td>
-        <td data-th="ПОЛ">Мужчина</td>
-        <td data-th="РЕГИСТРАЦИЯ">25.10.2022, 19:55</td>
-      </tr>
-      <tr>
-        <td data-th="№" class="width-10">1</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td data-th="ФИО УЧАСТНИКА">Пулатов Мавлонбек Мухторжон угли</td>
-        <td data-th="РЕГИОН">Андижанская обл.</td>
-        <td data-th="РАЙОН">Асакинский</td>
-        <td data-th="ПОЛ">Мужчина</td>
-        <td data-th="РЕГИСТРАЦИЯ">25.10.2022, 19:55</td>
-      </tr>
-      <tr>
-        <td data-th="№" class="width-10">2</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td data-th="ФИО УЧАСТНИКА">Пулатов Мавлонбек Мухторжон угли</td>
-        <td data-th="РЕГИОН">Андижанская обл.</td>
-        <td data-th="РАЙОН">Асакинский</td>
-        <td data-th="ПОЛ">Мужчина</td>
-        <td data-th="РЕГИСТРАЦИЯ">25.10.2022, 19:55</td>
-      </tr>
-      <tr>
-        <td data-th="№" class="width-10">1</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td data-th="ФИО УЧАСТНИКА">Пулатов Мавлонбек Мухторжон угли</td>
-        <td data-th="РЕГИОН">Андижанская обл.</td>
-        <td data-th="РАЙОН">Асакинский</td>
-        <td data-th="ПОЛ">Мужчина</td>
-        <td data-th="РЕГИСТРАЦИЯ">25.10.2022, 19:55</td>
-      </tr>
-      <tr>
-        <td data-th="№" class="width-10">2</td>
-        <td data-th="ID" class="width-10">1101169852</td>
-        <td data-th="ФИО УЧАСТНИКА">Пулатов Мавлонбек Мухторжон угли</td>
-        <td data-th="РЕГИОН">Андижанская обл.</td>
-        <td data-th="РАЙОН">Асакинский</td>
-        <td data-th="ПОЛ">Мужчина</td>
-        <td data-th="РЕГИСТРАЦИЯ">25.10.2022, 19:55</td>
+      </thead>
+      <tr v-for="(item, index) in data" :key="item.id">
+        <td data-th="№" class="width-10">
+          <span>{{ ((page >= 2) ? (page * 10) + ++index : ++index) }}</span>
+        </td>
+        <td data-th="ID" class="width-10">
+          <span>{{ item['participant_id'] }}</span>            <!--ID-->
+        </td>
+        <td :data-th="$t('memberTable1')">
+          <span>{{ item['full_name'] }}</span>  <!--name-->
+        </td>
+        <td :data-th="$t('memberTable2')">
+          <span>{{ item['region'] }}</span>     <!--region-->
+        </td>
+        <td :data-th="$t('memberTable3')">
+          <span>{{ item['district'] }}</span>               <!--district-->
+        </td>
+        <td :data-th="$t('memberTable4')">
+          <span>{{ item['gender'] }}</span>                  <!--sex-->
+        </td>
+        <td :data-th="$t('memberTable5')">
+          <span>{{ $prettyDate2(item['registration_date']) }}</span>        <!--date-->
+        </td>
       </tr>
     </table>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    data: Array,
+  },
+
+  computed: {
+    page() {
+      return this.$route.query.page;
+    }
+  },
+
+  mounted() {
+    console.log(this.data);
+  }
+}
 </script>

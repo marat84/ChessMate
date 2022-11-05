@@ -17,13 +17,13 @@
 
     <MainPageSeason class="mb-95"></MainPageSeason>
 
-    <section class="section-news g-container-wideLeft" v-if="news.results && news.results.length">
+    <section class="section-news g-container-wideLeft" v-if="news && news.length">
       <h2 class="main-section-title">{{ $t('nav6') }}</h2>
 
       <MainTinySlider
           :options="{...options, controlsContainer: '.js-slider-control-container' + 1}"
           :addClass="'js-slider-control-container' + 1"
-          :contents="news.results"
+          :contents="news"
       >
         <template v-slot:default="slotProps">
           <NewsItem :data="slotProps.item"></NewsItem>
@@ -99,6 +99,7 @@ export default {
     },
 
     news() {
+      console.log(this.$store.getters['news/getData']);
       return this.$store.getters['news/getData'];
     },
 
@@ -115,6 +116,10 @@ export default {
     newsError(e) {
       this.$errorHandler(e);
     }
+  },
+
+  mounted() {
+    console.log(this.news);
   }
 }
 </script>

@@ -131,6 +131,7 @@ export default {
 
   memberTable1: "ISHTIROKCHI FISHi",
   memberTable2: "XUDUD",
+  memberTable2_1: "Xudud",
   memberTable3: "TUMAN",
   memberTable4: "JINSI",
   memberTable5: "RO'YHATDAN O'TGAN",

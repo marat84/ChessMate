@@ -4,13 +4,13 @@
     <div>
       <h3 class="news-item__title">
         <nuxt-link :to="localePath('/news' + '/' + data['id'])" class="news-item__link">
-          <!--          {{ data[`title_${$utils.reLang()}`] }} -->Непомнящий остался на третьем месте в рейтинге FIDE
+          {{ data[`title_${$utils.reLang()}`] }}
         </nuxt-link>
       </h3>
-      <!--      <p class="news-item__desc">{{ data[`description_${$utils.reLang()}`] }}</p>-->
-      <p class="news-item__desc">Узбекский шахматист Джавахир Синдаров остался на третьем месте в рейтинге ФИДЕ</p>
-      <!--      <time class="news-item__date">{{ $prettyDate(data['created_at']) }}</time>-->
-      <time class="news-item__date">08.11.2021</time>
+      <p class="news-item__desc">{{ data[`description_${$utils.reLang()}`] }}</p>
+<!--      <p class="news-item__desc">Узбекский шахматист Джавахир Синдаров остался на третьем месте в рейтинге ФИДЕ</p>-->
+      <time class="news-item__date">{{ $prettyDate(data['created_at']) }}</time>
+<!--      <time class="news-item__date">08.11.2021</time>-->
     </div>
     <img class="news-item__img" :src="data['image']" alt="news-1">
   </article>
@@ -200,6 +200,7 @@ export default {
   margin-top: rem(32);
   opacity: 0.8;
   transition: opacity var(--animation);
+  height: rem(500);
 
   .news-item:hover & {
     opacity: 1;
