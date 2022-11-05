@@ -528,7 +528,7 @@ export default {
 
   aboutContent: `
     <h2 class="inner-title">О турнире</h2>
-    <p class="inner-desc mb-14">
+    <p class="inner-desc mb-14 mobile-no-br">
       6-7 ноября впервые состоится открытый международный турнир
       <br>
       по шахматам на приз хокима Ташкента — Tashkent Open!

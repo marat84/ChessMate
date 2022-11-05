@@ -493,7 +493,7 @@ Pul mukofoti jamg‘armasini to‘lash, musobaqaga taklif etilgan hakamlar va xo
 
   aboutContent: `
     <h2 class="inner-title">Turnir haqida</h2>
-    <p class="inner-desc mb-14">
+    <p class="inner-desc mb-14 mobile-no-br">
       6-7- noyabr kunlari ilk bor shaxmat bo'yicha Toshkent shahar hokimi
       <br>
       sovrini uchun ochiq xalqaro shaxmat turniri – “Tashkent Open” bo'lib o'tadi!

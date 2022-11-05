@@ -765,6 +765,11 @@
   &--color {
     background-color: var(--red);
   }
+  @media #{$md-and-down} {
+    font-size: 42px;
+    padding-bottom: 35px;
+    height: 300px;
+  }
 
   @media #{$smAndDown} {
     font-size: 24px;
@@ -859,6 +864,10 @@
   line-height: 1;
   margin-top: rem(8);
 
+  @media #{$md-and-down} {
+    font-size: 32px;
+  }
+
   @media #{$smAndDown} {
     font-size: 20px;
   }
@@ -889,6 +898,12 @@
     &:hover {
       text-decoration: none;
     }
+  }
+
+  @media #{$md-and-down} {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 16px;
   }
 
   @media #{$smAndDown} {
