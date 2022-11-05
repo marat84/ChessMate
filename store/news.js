@@ -15,7 +15,7 @@ export const mutations = {
 
 export const actions = {
   async fetch({commit}) {
-    await this.$axios.$get(`/ru/api/news/`)
+    await this.$axios.$get(`/ru/api/news/?page=1`)
       .then((response) => {
         commit('setData', response.results);
       })
