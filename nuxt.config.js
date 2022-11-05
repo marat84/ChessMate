@@ -5,8 +5,8 @@ let defaultTitle = 'Tashkent open - международный шахматны�
 let defaultDesc = 'Сайт посвященный международному шахматному турниру проходящему в городе Ташкенте при содействии хокимията города';
 
 if (defaultLang === 'uz') {
-  defaultTitle = 'Tashkent open - международный шахматный турнир';
-  defaultDesc = 'Сайт посвященный международному шахматному турниру проходящему в городе Ташкенте при содействии хокимията города';
+  defaultTitle = 'Tashkent open - xalqaro shaxmat turniri';
+  defaultDesc = 'Toshkent shahrida shahar hokimligi ko‘magida o‘tkazilayotgan xalqaro shaxmat turniriga bag‘ishlangan sayt';
 }
 
 export default {
