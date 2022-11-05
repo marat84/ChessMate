@@ -16,9 +16,11 @@ export const mutations = {
 export const actions = {
   async fetch({commit}, params) {
     const additionalURL = params.add ? params.add : '';
-    const page = params.page ? `?offset=${params.page}` : '';
+    const page = params.page ? `?page=${params.page}` : '?page=1';
+    const gender = params.gender ? `&gender=${params.gender}` : '';
+    const name = params.name ? `&full_name__icontains=${params.name}` : '';
 
-    await this.$axios.$get(`/ru/api/participants/${additionalURL}${page}`)
+    await this.$axios.$get(`/ru/api/participants/${additionalURL}${page}${gender}${name}`)
       .then((response) => {
         console.log(response);
         commit('setData', response);

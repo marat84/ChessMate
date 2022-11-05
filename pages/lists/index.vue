@@ -14,12 +14,24 @@
     <div ref="scrollHere">
       <MembersTablesFilter>
         <template #search>
-          <FormInput
-              id="filter-search"
-              :label="$t('memberList4')"
-              v-model="filterSearch"
-              :modelValue="filterSearch"
-          ></FormInput>
+          <div class="form-item-wrap filter-wrap__search">
+            <FormInput
+                id="filter-search"
+                :label="$t('memberList4')"
+                v-model="filterSearch"
+                :modelValue="filterSearch"
+                :eventSearch="search"
+            ></FormInput>
+
+            <button type="button" class="form-item-in-button" @click="search">
+              <span class="visually-hidden">{{ $t('searchButton') }}</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
         </template>
 
         <template #select-1>
@@ -61,35 +73,36 @@
           </div>
         </template>
 
-        <template #select-3>
-          <div class="member-select">
-            <v-autocomplete
-                v-model="filterDistrict"
-                :items="[
-                    {id: 1, value: '01', name:'Юнусабад'},
-                    {id: 2, value: '02', name:'Сергели'}
-                ]"
-                item-value="value"
-                :item-text="'name'"
-                :no-data-text="$t('memberList5')"
-                :placeholder="$t('memberList6')"
-                :label="$t('memberList9')"
-                background-color="transparent"
-                dark
-                height="3.5rem"
-            >
-            </v-autocomplete>
-          </div>
-        </template>
+        <!--        <template #select-3>
+                  <div class="member-select">
+                    <v-autocomplete
+                        v-model="filterDistrict"
+                        :items="[
+                            {id: 1, value: '01', name:'Юнусабад'},
+                            {id: 2, value: '02', name:'Сергели'}
+                        ]"
+                        item-value="value"
+                        :item-text="'name'"
+                        :no-data-text="$t('memberList5')"
+                        :placeholder="$t('memberList6')"
+                        :label="$t('memberList9')"
+                        background-color="transparent"
+                        dark
+                        height="3.5rem"
+                    >
+                    </v-autocomplete>
+                  </div>
+                </template>-->
       </MembersTablesFilter>
 
       <MembersTablesAmature :data="members.results" v-if="members.results && members.results.length"></MembersTablesAmature>
     </div>
 
     <v-pagination
+        v-if="members.results && members.results.length"
         v-model="page"
-        :length="Math.floor(members.count / 20)"
-        :total-visible="6"
+        :length="Math.ceil(members.count / 20)"
+        :total-visible="($vuetify.breakpoint.lgAndUp) ? 7 : 6"
         @input="go"
     ></v-pagination>
   </section>
@@ -111,7 +124,13 @@ export default {
   },
 
   async fetch() {
-    await this.$store.dispatch('members/fetch', {add: 'all'});
+    const query = this.$route.query;
+
+    await this.$store.dispatch('members/fetch', {
+      add: 'all',
+      page: query.page,
+      gender: this.filterSex,
+    });
   },
 
   methods: {
@@ -124,11 +143,19 @@ export default {
       await this.$store.dispatch('members/fetch', {
         add: 'all',
         page: e,
+        gender: this.filterSex,
+        name: this.filterSearch,
       });
 
       await this.$router.push(this.localePath(url));
 
       this.loading = false;
+    },
+    async search(e) {
+      this.page = 1;
+      await this.$router.push(this.localePath(`/lists`));
+
+      await this.$store.dispatch('members/fetch', {add: 'all', name: this.filterSearch, gender: this.filterSex});
     }
   },
   computed: {
@@ -139,16 +166,28 @@ export default {
     members() {
       return this.$store.getters['members/getData'];
     },
+
+    query() {
+      return this.$route.query;
+    }
   },
   watch: {
-    filterSex(e) {
-      console.log(e);
-    }
+    async filterSex(e) {
+      this.page = 1;
+      await this.$router.push(this.localePath(`/lists`));
+
+      await this.$store.dispatch('members/fetch', {add: 'all', gender: e, name: this.filterSearch});
+    },
+    async filterRegion(e) {
+      this.page = 1;
+      await this.$router.push(this.localePath(`/lists`));
+
+      await this.$store.dispatch('members/fetch', {add: 'all', gender: e});
+    },
   },
 
   mounted() {
     if (this.$route.query?.page) {
-      console.log(this.$route.query?.page);
       this.page = +this.$route.query.page;
     }
   }
