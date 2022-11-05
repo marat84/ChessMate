@@ -30,10 +30,10 @@
       ></FormInput>
 
       <div class="form-item form-item--textarea mb-60">
-        <label for="add-message" :class="['form-item__label', {'form-item__label--filled' : form.description.length}]">{{ $t('feedbackText4') }}</label>
-        <textarea id="add-message" class="form-item__input" v-model="form.description" maxlength="1200"></textarea>
-        <div class="textarea-count-length" v-if="$i18n.locale === 'rus'">{{ $t('feedbackText5') }} {{ 1200 - form.description.length }} {{ $t('feedbackText6') }}</div>
-        <div class="textarea-count-length" v-else>{{ 1200 - form.description.length }} {{ $t('feedbackText5') }}  {{ $t('feedbackText6') }}</div>
+        <label for="add-message" :class="['form-item__label', {'form-item__label--filled' : form.text.length}]">{{ $t('feedbackText4') }}</label>
+        <textarea id="add-message" class="form-item__input" v-model="form.text" maxlength="1200"></textarea>
+        <div class="textarea-count-length" v-if="$i18n.locale === 'rus'">{{ $t('feedbackText5') }} {{ 1200 - form.text.length }} {{ $t('feedbackText6') }}</div>
+        <div class="textarea-count-length" v-else>{{ 1200 - form.text.length }} {{ $t('feedbackText5') }}  {{ $t('feedbackText6') }}</div>
       </div>
 
       <div class="files-upload-wrap mb-50">
@@ -57,15 +57,14 @@ export default {
   data() {
     return {
       fileUploadEventName: 'fileUpload',
-      fileUploadName: 'imageFile-',
+      fileUploadName: 'file_',
       fileUploadCount: 5,
 
       form: {
         name: "",
         email: "",
         phone: "",
-        author_phone_number: "",
-        description: "",
+        text: "",
       },
     }
   },
@@ -82,10 +81,10 @@ export default {
         formData.append(key, this.form[key]);
       }
 
-      this.$axios.$post('/ru/api/errors/error_message/', formData)
+      this.$axios.$post('/ru/api/feedback/', formData)
           .then((response) => {
             this.$message({
-              title: this.$t('feedback.text12')
+              title: this.$t('feedbackText10')
             }, true);
           })
           .catch(error => {

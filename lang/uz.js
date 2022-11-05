@@ -164,6 +164,8 @@ export default {
   feedbackText7: "Biron bir ma'lumot bilan bo'lishmoqchi bo'lsangiz, uni shu erda kiritishingiz mumkin",
   feedbackText8: ".jpeg va .png formatidagi 5 tadan ko'p bo'lmagan faylarni kiritish mumkin, har bir fayl 15 MB dan oshmasligi kerak",
   feedbackText9: "Yuborish",
+  feedbackText10: "Sizning xabaringiz muvofaqyatli yuborildi",
+  feedbackText11: "Xabaringiz yuborilmadi. Keyinroq harakat qilib ko‘ring",
 
   footerText1: "Loyiha haqida ma'lumot",
   footerText2: "Hokimiyat logo",
