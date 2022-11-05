@@ -32,7 +32,7 @@
 
 <style lang="scss">
 .footer {
-  margin-top: rem(120);
+  //margin-top: rem(120);
   padding-top: rem(48);
 
   @media #{$smAndDown} {
