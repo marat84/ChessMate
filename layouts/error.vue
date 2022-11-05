@@ -6,7 +6,7 @@
     <div class="error-text-wrap">
       <h2 v-if="error.statusCode === 404">{{ $t('errorPage1') }}</h2>
       <h2 v-else>{{ $t('errorPage2') }}</h2>
-      <p v-if="$i18n.locale === 'ru'">
+      <p v-if="$i18n.locale === 'rus'">
         {{ $t('errorPage3') }}
         <NuxtLink :to="($i18n.locale === $i18n.defaultLocale) ? '/' : `/${$i18n.locale}/`">{{ $t('errorPage4') }}</NuxtLink>
       </p>
