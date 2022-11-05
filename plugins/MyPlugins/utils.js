@@ -78,6 +78,8 @@ export default ({app, $base64}, inject) => {
       switch (app.i18n.locale) {
         case 'rus':
           return 'ru';
+        case 'uz':
+          return 'oz';
       }
     }
   }))

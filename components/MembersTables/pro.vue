@@ -23,10 +23,10 @@
           <span>{{ item['full_name'] }}</span>
         </td>
         <td :data-th="$t('memberTable6')">
-          <span v-if="item['degree']">{{ item['degree'][`name_${$utils.reLang()}`] }}</span>
+          <span v-if="item['degree']">{{ item['degree'][`name`] }}</span>
         </td>
         <td :data-th="$t('memberTable7')">
-          <span>{{ item['country'][`name_${$utils.reLang()}`] }}</span>
+          <span>{{ item['country'][`name`] }}</span>
         </td>
         <td :data-th="$t('memberTable4')">
           <span>{{ (item['gender'] === 'male') ? $t('sex1') : $t('sex2') }}</span>
