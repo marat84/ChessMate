@@ -1222,9 +1222,13 @@
 
 .news-inner-section {
   width: vw(1110);
+  position: sticky;
+  bottom: rem(30);
+  align-self: flex-end;
 
   @media #{$smAndDown} {
     width: 100%;
+    position: static;
   }
 }
 
