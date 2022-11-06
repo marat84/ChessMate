@@ -10,14 +10,14 @@
       </p>
       <div class="main-marquee-text-wrap">
         <marquee-text :repeat="5">
-          {{ $t('mainText3') + '\xa0'}}
+          {{ $t('mainText3') + '\xa0' }}
         </marquee-text>
       </div>
     </div>
 
     <MainPageSeason class="mb-95"></MainPageSeason>
 
-    <section class="section-news g-container-wideLeft" v-if="news && news.length">
+    <section class="section-news news-slider-main g-container-wideLeft" v-if="news && news.length">
       <h2 class="main-section-title">{{ $t('nav6') }}</h2>
 
       <MainTinySlider
@@ -69,15 +69,58 @@ export default {
     return {
       options: {
         items: 3,
-        fixedWidth: (this.$vuetify.breakpoint.smAndDown) ? 200 : 686,
+        fixedWidth: 686,
         rewind: true,
         nav: false,
+        responsive: {
+          2300: {
+            items: 2,
+            fixedWidth: false,
+            gutter: 50
+          },
+          1300: {
+            items: 3,
+            fixedWidth: 686,
+          },
+          700: {
+            items: 2,
+            fixedWidth: 400,
+          },
+          320: {
+            items: 1,
+            fixedWidth: false,
+          },
+        }
       },
       optionsGallery: {
         items: 3,
-        fixedWidth: (this.$vuetify.breakpoint.smAndDown) ? 200 : 686,
+        fixedWidth: 686,
         rewind: true,
         nav: false,
+        responsive: {
+          2400: {
+            items: 4,
+            fixedWidth: false,
+            gutter: 50
+          },
+          2000: {
+            items: 3,
+            fixedWidth: false,
+            gutter: 50
+          },
+          1300: {
+            items: 3,
+            fixedWidth: 686,
+          },
+          700: {
+            items: 2,
+            fixedWidth: 300,
+          },
+          320: {
+            items: 2,
+            fixedWidth: 200,
+          },
+        }
       },
     }
   },

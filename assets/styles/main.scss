@@ -1601,3 +1601,24 @@ textarea.form-item__input {
     display: none;
   }
 }
+
+.news-slider-main {
+  @media #{$md-and-up} {
+    & .news-item__desc,
+    & .news-item__title {
+      min-height: rem(80);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    & .news-item__desc {
+      min-height: rem(64);
+    }
+  }
+
+  @media #{$smAndDown} {
+    padding-right: var(--container-lg);
+  }
+}
