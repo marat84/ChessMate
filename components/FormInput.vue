@@ -13,6 +13,7 @@
           :required="required"
           :readonly="readonly"
           :minlength="minLength"
+          :maxlength="maxLength"
           @change='$emit("change", $event.target.value)'
           @input='$emit("input", $event.target.value)'
       >
@@ -42,6 +43,7 @@ export default {
     readonly: Boolean,
     required: Boolean,
     minLength: String,
+    maxLength: String,
   },
 }
 </script>

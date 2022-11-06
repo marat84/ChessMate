@@ -8,6 +8,7 @@
           :label="$t('feedbackText1')"
           v-model="form.name"
           :modelValue="form.name"
+          maxLength="50"
           required
       ></FormInput>
       <FormInput
@@ -17,6 +18,7 @@
           v-model="form.email"
           :modelValue="form.email"
           required
+          autocomplete="off"
       ></FormInput>
       <FormInput
           type="tel"
