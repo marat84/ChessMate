@@ -111,7 +111,18 @@ export default {
     '@nuxtjs/style-resources',
     'nuxt-vuex-localstorage',
     'vue-social-sharing/nuxt',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    [
+      '@nuxtjs/yandex-metrika',
+      {
+        id: '91067311',
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+        // useCDN:false,
+      }
+    ]
   ],
 
   i18n: {
