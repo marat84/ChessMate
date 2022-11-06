@@ -42,7 +42,7 @@
         </template>
 
         <template #select-1>
-          <div class="member-select">
+          <div class="member-select" v-if="$vuetify.breakpoint.mdAndUp">
             <v-autocomplete
                 v-model="filterSex"
                 :items="[
@@ -61,25 +61,37 @@
             >
             </v-autocomplete>
           </div>
+          <FormSelect
+              v-else
+              id="filter-sex"
+              :label="$t('memberList7')"
+              v-model="filterSex"
+              :modelValue="filterSex"
+              :options="[
+                  {id: 0, value: '', name: $t('sex0')},
+                  {id: 1, value: 'male', name: $t('sex1')},
+                  {id: 2, value: 'female', name: $t('sex2')}
+              ]"
+          ></FormSelect>
         </template>
 
-<!--        <template #select-2>
-          <div class="member-select">
-            <v-autocomplete
-                v-model="filterRegion"
-                :items="regions"
-                item-value="id"
-                :item-text="'name'"
-                :no-data-text="$t('memberList5')"
-                :placeholder="$t('memberList6')"
-                :label="$t('memberTable2_1')"
-                background-color="transparent"
-                dark
-                height="3.5rem"
-            >
-            </v-autocomplete>
-          </div>
-        </template>-->
+        <!--        <template #select-2>
+                  <div class="member-select">
+                    <v-autocomplete
+                        v-model="filterRegion"
+                        :items="regions"
+                        item-value="id"
+                        :item-text="'name'"
+                        :no-data-text="$t('memberList5')"
+                        :placeholder="$t('memberList6')"
+                        :label="$t('memberTable2_1')"
+                        background-color="transparent"
+                        dark
+                        height="3.5rem"
+                    >
+                    </v-autocomplete>
+                  </div>
+                </template>-->
 
         <!--        <template #select-3>
                   <div class="member-select">

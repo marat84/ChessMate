@@ -152,6 +152,7 @@ export default {
   mainText4: `Bizning hamkorlar`,
   mainText5: `Fotogallereya`,
 
+  sex0: "Hammasi",
   sex1: "Erkak",
   sex2: "Ayol",
 

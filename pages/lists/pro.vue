@@ -39,7 +39,7 @@
         </template>
 
         <template #select-1>
-          <div class="member-select">
+          <div class="member-select" v-if="$vuetify.breakpoint.mdAndUp">
             <v-autocomplete
                 v-model="filterSex"
                 :items="[
@@ -58,10 +58,22 @@
             >
             </v-autocomplete>
           </div>
+          <FormSelect
+              v-else
+              id="filter-sex"
+              :label="$t('memberList7')"
+              v-model="filterSex"
+              :modelValue="filterSex"
+              :options="[
+                  {id: 0, value: '', name: $t('sex0')},
+                  {id: 1, value: 'male', name: $t('sex1')},
+                  {id: 2, value: 'female', name: $t('sex2')}
+              ]"
+          ></FormSelect>
         </template>
 
         <template #select-2>
-          <div class="member-select">
+          <div class="member-select" v-if="$vuetify.breakpoint.mdAndUp">
             <v-autocomplete
                 v-model="filterRegion"
                 :items="country"
@@ -77,46 +89,46 @@
             >
             </v-autocomplete>
           </div>
-          <!--          <FormSelect
-                        id="filter-country"
-                        label="Все страны"
-                        v-model="filterRegion"
-                        :modelValue="filterRegion"
-                        :options="[
-                            {id: 1, value: 'male', name:'UZB'},
-                            {id: 2, value: 'female', name:'USA'}
-                        ]"
-                    ></FormSelect>-->
+          <FormSelect
+              v-else
+              id="filter-country"
+              :label="$t('memberList8')"
+              v-model="filterRegion"
+              :modelValue="filterRegion"
+              :options="countryMobile"
+          ></FormSelect>
+
+          <!--              :options="[{id:0,value:'',name:$t('sex0')},...country]"-->
         </template>
 
-        <template #select-3>
-          <div class="member-select">
-            <v-autocomplete
-                v-model="filterStatus"
-                :items="degrees"
-                item-value="id"
-                :item-text="'name'"
-                :no-data-text="$t('memberList5')"
-                :placeholder="$t('memberList6')"
-                :label="$t('memberList16')"
-                background-color="transparent"
-                clearable
-                dark
-                height="3.5rem"
-            >
-            </v-autocomplete>
-          </div>
-          <!--          <FormSelect
-                        id="filter-district"
-                        label="Статус"
+        <!--        <template #select-3>
+                  <div class="member-select">
+                    <v-autocomplete
                         v-model="filterStatus"
-                        :modelValue="filterStatus"
-                        :options="[
-                            {id: 1, value: '02', name:'Grandmaster'},
-                            {id: 2, value: '03', name:'International Master'}
-                        ]"
-                    ></FormSelect>-->
-        </template>
+                        :items="degrees"
+                        item-value="id"
+                        :item-text="'name'"
+                        :no-data-text="$t('memberList5')"
+                        :placeholder="$t('memberList6')"
+                        :label="$t('memberList16')"
+                        background-color="transparent"
+                        clearable
+                        dark
+                        height="3.5rem"
+                    >
+                    </v-autocomplete>
+                  </div>
+                  &lt;!&ndash;          <FormSelect
+                                id="filter-district"
+                                label="Статус"
+                                v-model="filterStatus"
+                                :modelValue="filterStatus"
+                                :options="[
+                                    {id: 1, value: '02', name:'Grandmaster'},
+                                    {id: 2, value: '03', name:'International Master'}
+                                ]"
+                            ></FormSelect>&ndash;&gt;
+                </template>-->
       </MembersTablesFilter>
 
 
@@ -203,6 +215,22 @@ export default {
     country() {
       return this.$store.getters['country/getData'];
     },
+    countryMobile() {
+      const data = this.$store.getters['country/getData'];
+      const newData = [
+        {
+          id: 0,
+          value: '',
+          name: this.$t('sex0')
+        }
+      ];
+
+      for (let item of data) {
+        newData.push({...item, value: item.id})
+      }
+
+      return newData;
+    },
     degrees() {
       const data = this.$store.getters['degree/getData'];
 
@@ -218,17 +246,18 @@ export default {
     }
   },
   watch: {
+    async filterRegion(e) {
+      console.log(e);
+      this.page = 1;
+      await this.$router.push(this.localePath(`/lists/pro`));
+
+      await this.$store.dispatch('membersPro/fetch', {name: this.filterSearch, gender: this.filterSex, country: e, degree: this.filterStatus});
+    },
     async filterSex(e) {
       this.page = 1;
       await this.$router.push(this.localePath(`/lists/pro`));
 
       await this.$store.dispatch('membersPro/fetch', {gender: e, name: this.filterSearch, country: this.filterRegion, degree: this.filterStatus});
-    },
-    async filterRegion(e) {
-      this.page = 1;
-      await this.$router.push(this.localePath(`/lists/pro`));
-
-      await this.$store.dispatch('membersPro/fetch', {name: this.filterSearch, gender: this.filterSex, country: e, degree: this.filterStatus});
     },
     async filterStatus(e) {
       this.page = 1;

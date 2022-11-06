@@ -1,6 +1,6 @@
 <template>
   <div class="form-item">
-    <label :for="id" :class="['form-item__label', {'form-item__label--filled' : modelValue.length}]" v-if="label">{{ label }}</label>
+    <label :for="id" :class="['form-item__label', {'form-item__label--filled' : (modelValue.length || $vuetify.breakpoint.smAndDown)}]" v-if="label">{{ label }}</label>
     <slot :id="id">
       <select
           :class="['form-item__input', ...wrapClass]"

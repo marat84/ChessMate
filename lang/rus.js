@@ -153,6 +153,7 @@ export default {
   mainText4: `Наши партнеры`,
   mainText5: `Фотогалерея`,
 
+  sex0: "Все",
   sex1: "Мужчина",
   sex2: "Женщина",
 
