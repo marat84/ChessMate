@@ -1,7 +1,7 @@
 <template>
   <div class="main-page-wrap">
     <div class="video-wrap">
-      <video class="video" id="main-video" width="1920" height="1080" muted loop playsinline autoplay aria-hidden="true" data-id="part-0">
+      <video class="video" id="main-video" width="1920" height="1080" muted loop playsinline autoplay aria-hidden="true" data-id="part-0" ref="video">
         <source src="/video/main.webm" type="video/webm">
         <source src="/video/main.mp4" type="video/mp4">
         {{ $t('mainText1') }}
@@ -118,7 +118,7 @@ export default {
   },
 
   mounted() {
-    console.log(this.news);
+    this.$refs.video.play();
   }
 }
 </script>
