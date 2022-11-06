@@ -44,7 +44,7 @@ export default ({$utils}, inject) => {
 
     // console.log(documentFiles);
 
-    const FILE_UPLOAD_EXT = ['jpg', 'png'];
+    const FILE_UPLOAD_EXT = ['jpg', 'png', 'HEVC', 'jpeg'];
     const LINK_CLASSES = ['file-list__link', 'file-list__link--left'];
     const ADDITIONAL_CLASS = fileUploadSettings.additionalClass;
     const fiveMegabytes = 15728640; // 15 мегабайт
