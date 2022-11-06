@@ -205,5 +205,9 @@ export default {
   .news-item:hover & {
     opacity: 1;
   }
+
+  @media #{$smAndDown} {
+    height: 180px;
+  }
 }
 </style>
