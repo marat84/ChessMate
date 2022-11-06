@@ -23,7 +23,6 @@ export const actions = {
 
     await this.$axios.$get(`/ru/api/participants/professional/${page}${gender}${name}${country}${degree}`)
       .then((response) => {
-        console.log(response);
         commit('setData', response);
       })
       .catch(error => {

@@ -110,7 +110,6 @@ export default {
   },
   methods: {
     async go(e) {
-      console.log(e);
       const url = `/lists/qualifying/?page=${e}`;
       await this.$router.push(this.localePath(url));
       // setTimeout(() => {

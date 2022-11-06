@@ -61,10 +61,6 @@ export default {
     others(){
       return this.$store.getters['newsDetail/getData'].other;
     }
-  },
-
-  mounted() {
-    console.log(this.news);
   }
 }
 </script>

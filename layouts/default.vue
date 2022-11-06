@@ -58,7 +58,6 @@ export default {
         AJAX_FORBIDDEN: this.$t('fancyBox.AJAX_FORBIDDEN'),
         IFRAME_ERROR: this.$t('fancyBox.IFRAME_ERROR'),
       };
-      console.log(window.fancybox);
     },
   },
   mounted() {

@@ -22,7 +22,6 @@ export const actions = {
 
     await this.$axios.$get(`/ru/api/participants/${additionalURL}${page}${gender}${name}&is_chosen=1`)
       .then((response) => {
-        console.log(response);
         commit('setData', response);
       })
       .catch(error => {

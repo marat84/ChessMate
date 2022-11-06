@@ -99,7 +99,6 @@ export default {
     },
 
     news() {
-      console.log(this.$store.getters['news/getData']);
       return this.$store.getters['news/getData'];
     },
 

@@ -121,8 +121,6 @@ export default {
           this.$set(this.form, this.fileUploadName + i, undefined);
         }
       }
-
-      console.log(this.form);
     });
   },
 

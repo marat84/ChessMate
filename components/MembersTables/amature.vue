@@ -50,9 +50,5 @@ export default {
       return this.$route.query.page;
     }
   },
-
-  mounted() {
-    console.log(this.data);
-  }
 }
 </script>

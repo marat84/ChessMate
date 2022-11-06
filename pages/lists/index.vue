@@ -207,10 +207,6 @@ export default {
       await this.$router.push(this.localePath(`/lists`));
 
       await this.$store.dispatch('members/fetch', {add: 'all', gender: e});
-    },
-
-    filterSearch(e) {
-      console.log(e);
     }
   },
 
