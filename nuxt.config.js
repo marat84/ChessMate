@@ -1,4 +1,4 @@
-const defaultLang = 'rus';
+const defaultLang = 'uz';
 const mainUrl = 'https://chess.tashkent.uz';
 
 let defaultTitle = 'Tashkent open - международный шахматный турнир';
