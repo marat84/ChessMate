@@ -1269,10 +1269,11 @@
 .member-tabs-wrap {
   margin-top: rem(100);
   display: flex;
+  flex-wrap: wrap;
 
   @media #{$smAndDown} {
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
@@ -1537,7 +1538,7 @@ textarea.form-item__input {
 .v-application .member-tabs-wrap__title,
 .member-tabs-wrap__title {
   @media #{$smAndDown} {
-    margin-right: 0 !important;
+    margin-right: 20px !important;
     margin-bottom: 20px !important;
   }
 }
