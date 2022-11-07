@@ -21,16 +21,16 @@ export default {
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
       {hid: 'description', name: 'description', content: defaultDesc},
       {name: 'format-detection', content: 'telephone=no'},
-      {name: "msapplication-TileColor", content: "#2b5797"},
-      {name: "theme-color", content: "#2b5797"},
+      {name: "msapplication-TileColor", content: "#000"},
+      {name: "theme-color", content: "#000"},
 
       {property: "og:type", content: "website"},
       {property: "og:image:width", content: "1351"},
       {property: "og:image:height", content: "707"},
-      {hid: 'og:title', property: "og:title", title: defaultTitle},
-      {hid: 'og:description', property: "og:description", content: defaultDesc},
+      {property: "og:title", title: defaultTitle},
+      {property: "og:description", content: defaultDesc},
       // {property: "og:image", content: mainUrl + "images/form-bg.jpg"},
-      // {property: "og:url", content: mainUrl},
+      {property: "og:url", content: mainUrl}
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
@@ -68,6 +68,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    {src: '~/plugins/MyPlugins/utilsNative.js', mode: 'client'},
+
     '~/plugins/v-mask.js',
 
     {src: '~/plugins/fancyapps.js', mode: "client"},
@@ -76,9 +78,9 @@ export default {
     {src: "~/plugins/infiniteloading.js", mode: 'client'},
 
     {src: '~/plugins/MyPlugins/fileUpload.js', mode: 'client'},
-    {src: '~/plugins/MyPlugins/utils.js', mode: 'client'},
     {src: '~/plugins/MyPlugins/message.js', mode: 'client'},
 
+    '~/plugins/MyPlugins/utils.js',
     '~/plugins/MyPlugins/getStatusError.js',
     '~/plugins/MyPlugins/prettyDate.js',
     '~/plugins/MyPlugins/prettyDate2.js',

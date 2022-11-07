@@ -1,6 +1,6 @@
 <template>
   <v-app class="main-wrap">
-    <div class="content-wrap" :class="{'content-wrap--lights' : forLights}" v-if="mountPage">
+    <div class="content-wrap" :class="{'content-wrap--lights' : forLights}">
       <Header></Header>
       <article class="main-article">
         <Nuxt></Nuxt>
@@ -96,11 +96,11 @@ export default {
     }
   }
 
-   &--lights::after {
-     top: 70%;
-     right: auto;
-     left: rem(-120);
-   }
+  &--lights::after {
+    top: 70%;
+    right: auto;
+    left: rem(-120);
+  }
 }
 
 .main-article {

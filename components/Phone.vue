@@ -1,5 +1,5 @@
 <template>
-  <a :href="'tel:'+removeSpace(phone)">{{ this.$utils.formatPhone(phone) }}</a>
+  <a :href="'tel:'+removeSpace(phone)">{{ $utils.formatPhone(phone) }}</a>
 </template>
 
 <script>

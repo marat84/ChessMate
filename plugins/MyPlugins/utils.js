@@ -2,21 +2,6 @@ import Vue from 'vue';
 
 export default ({app, $base64}, inject) => {
 
-  // Убирает фокус с элементов если активна мышка
-  (function () {
-    // Даёт понять документу что используется мышь
-    document.body.addEventListener('mousedown', function () {
-      document.body.classList.add('using-mouse');
-    });
-
-    // Добавляет класс для фокуса если нажат TAB
-    document.body.addEventListener('keydown', function (event) {
-      if (event.keyCode === 9) {
-        document.body.classList.remove('using-mouse');
-      }
-    });
-  })();
-
   // Оборачивает каждую перенесенную строку в тег
   function splitLines(container, opentag, closingtag) {
     let spans = container.children,
