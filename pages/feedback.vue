@@ -67,6 +67,11 @@ export default {
         email: "",
         phone: "",
         text: "",
+        file_1: "",
+        file_2: "",
+        file_3: "",
+        file_4: "",
+        file_5: "",
       },
     }
   },
@@ -82,6 +87,8 @@ export default {
 
         formData.append(key, this.form[key]);
       }
+
+      console.log(this.form);
 
       this.$axios.$post('/ru/api/feedback/', formData)
           .then((response) => {
@@ -119,8 +126,6 @@ export default {
         if (e.name === this.fileUploadName + i) {
           let files = e.files[0];
           this.$set(this.form, this.fileUploadName + i, files);
-        } else {
-          this.$set(this.form, this.fileUploadName + i, undefined);
         }
       }
     });
