@@ -14,7 +14,7 @@
       </thead>
       <tr v-for="(item, index) in data" :key="item.id">
         <td data-th="№" class="width-10">
-          <span>{{ ((page >= 2) ? (page * 10) + ++index : ++index) }}</span>
+          <span>{{ ((page * 20) + ++index) - 20 }}</span>
         </td>
         <td :data-th="$t('memberTable9')" class="width-10">
           <span>{{ item['fide_code'] }}</span>
@@ -47,7 +47,10 @@ export default {
 
   computed: {
     page() {
-      return this.$route.query.page;
+      if (+this.$route.query.page)
+        return +this.$route.query.page;
+
+      return 1;
     }
   }
 }
