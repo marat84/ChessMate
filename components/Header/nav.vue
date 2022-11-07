@@ -22,7 +22,7 @@
         </nuxt-link>
       </li>
 
-      <li class="nav-list__logo-wrap" v-if="!isFooter && !$vuetify.breakpoint.smAndDown">
+      <li class="nav-list__logo-wrap" v-if="!isFooter">
         <HeaderLogo></HeaderLogo>
       </li>
 
@@ -49,6 +49,16 @@
 export default {
   props: {
     isFooter: Boolean,
+  },
+
+  data() {
+    return {
+      loading: false,
+    }
+  },
+
+  mounted() {
+    this.loading = true;
   }
 }
 </script>
@@ -131,5 +141,9 @@ export default {
 
 .nav-list__logo-wrap {
   margin: 0 auto;
+
+  @media #{$smAndDown} {
+    display: none;
+  }
 }
 </style>
