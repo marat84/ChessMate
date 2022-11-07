@@ -1221,10 +1221,14 @@
 }
 
 .news-inner-section {
-  width: vw(1110);
+  width: rem(1110);
   position: sticky;
   bottom: rem(30);
   align-self: flex-end;
+
+  @media #{$md-and-down} {
+    width: rem(700);
+  }
 
   @media #{$smAndDown} {
     width: 100%;
@@ -1235,7 +1239,7 @@
 .news-aside {
   position: sticky;
   top: rem(20);
-  width: vw(400);
+  width: rem(400);
   margin-top: rem(125);
 
   @media #{$smAndDown} {
