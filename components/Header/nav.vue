@@ -7,7 +7,7 @@
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link class="nav-list__link" active-class="nav-list__link--active" :to="localePath('/lists')" tabindex="0">
+        <nuxt-link class="nav-list__link" active-class="nav-list__link--active" :to="localePath('/lists/qualifying')" tabindex="0">
           {{ $t('nav2') }}
         </nuxt-link>
       </li>

@@ -34,7 +34,7 @@ export default {
       update: false,
 
       tabsName: [
-        {id: 1, name: this.$t('memberList11'), link: '/'},
+        {id: 1, name: this.$t('memberList11'), link: '/qualifying'},
         // {id: 2, name: this.$t('memberList11'), link: '/qualifying/'},
         {id: 3, name: this.$t('memberList12'), link: '/pro'},
       ]
@@ -69,9 +69,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.gray-color {
-  opacity: 0.4;
-}
-</style>
