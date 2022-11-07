@@ -8,11 +8,13 @@
       </video>
       <p class="main-video-text" v-html="$t('mainText2')">
       </p>
-      <div class="main-marquee-text-wrap">
-        <marquee-text :repeat="5">
-          {{ $t('mainText3') + '\xa0' }}
-        </marquee-text>
-      </div>
+      <client-only>
+        <div class="main-marquee-text-wrap">
+          <marquee-text :repeat="5">
+            {{ $t('mainText3') + '\xa0' }}
+          </marquee-text>
+        </div>
+      </client-only>
     </div>
 
     <MainPageSeason class="mb-95"></MainPageSeason>
