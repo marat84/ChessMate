@@ -71,6 +71,7 @@ export default {
     {src: '~/plugins/MyPlugins/utilsNative.js', mode: 'client'},
 
     '~/plugins/v-mask.js',
+    '~/plugins/axios.js',
 
     {src: '~/plugins/fancyapps.js', mode: "client"},
     {src: '~/plugins/vue-marquee.js', mode: "client"},
