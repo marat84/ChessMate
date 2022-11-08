@@ -41,7 +41,7 @@
     <v-tabs-items v-model="tab">
       <v-tab-item
           v-for="item in sections"
-          :key="item.id"
+          :key="item"
           background-color="transparent"
       >
         <div class="g-container">
@@ -72,75 +72,75 @@ export default {
               list: [
                 {
                   id: 1,
-                  name: "Sindarov Javohir",
+                  name: this.$t('winnersText17'),
                   prize: '50 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 2,
-                  name: "Kazhgaleyev Murtas",
+                  name: this.$t('winnersText17'),
                   prize: '30 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 3,
-                  name: "Vokhidov Shamsiddin",
+                  name: this.$t('winnersText17'),
                   prize: '20 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 4,
-                  name: "Vakhidov Jakhongir",
+                  name: this.$t('winnersText17'),
                   prize: '10 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 5,
-                  name: "Yakubboev Nodirbek",
+                  name: this.$t('winnersText17'),
                   prize: '8 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 6,
-                  name: "Begmuratov Khumoyun",
+                  name: this.$t('winnersText17'),
                   prize: '6 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 7,
-                  name: "Fayzullaev Akmal",
+                  name: this.$t('winnersText17'),
                   prize: '5 000 000 ' + this.$t('som'),
                 },
               ]
             },
             {
-              id: 2,
+              id: 1,
               name: this.$t('winnersText9'),
               list: [
                 {
-                  id: 11,
-                  name: "Egin Vladimir",
+                  id: 1,
+                  name: this.$t('winnersText17'),
                   prize: '4 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText10')
                 },
               ]
             },
             {
-              id: 3,
+              id: 1,
               name: this.$t('winnersText11'),
               list: [
                 {
-                  id: 111,
-                  name: "Madaminov Muhiddin",
+                  id: 1,
+                  name: this.$t('winnersText17'),
                   prize: '4 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText15'),
                 },
                 {
-                  id: 222,
-                  name: "Omonov Asrorjon",
+                  id: 2,
+                  name: this.$t('winnersText17'),
                   prize: '3 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText12'),
                 },
-                /*{
-                  id: 333,
+                {
+                  id: 3,
                   name: this.$t('winnersText17'),
                   prize: '2 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText13'),
-                },*/
+                },
               ]
             }
           ]
@@ -155,22 +155,22 @@ export default {
               list: [
                 {
                   id: 1,
-                  name: "Omonova Umida",
+                  name: this.$t('winnersText17'),
                   prize: '50 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 2,
-                  name: "Khamdamova Afruza",
+                  name: this.$t('winnersText17'),
                   prize: '30 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 3,
-                  name: "Tursunova Aziza",
+                  name: this.$t('winnersText17'),
                   prize: '20 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 4,
-                  name: "Tohirjonova Hulkar",
+                  name: this.$t('winnersText17'),
                   prize: '6 000 000 ' + this.$t('som'),
                 },
               ]
@@ -181,13 +181,13 @@ export default {
               list: [
                 {
                   id: 1,
-                  name: "Bobomurodova Maftuna",
+                  name: this.$t('winnersText17'),
                   prize: '3 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText12'),
                 },
                 {
                   id: 2,
-                  name: "Jumaeva Malika",
+                  name: this.$t('winnersText17'),
                   prize: '2 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText13'),
                 },
@@ -205,7 +205,7 @@ export default {
               list: [
                 {
                   id: 1,
-                  name: "Ravshanov Sheralijon",
+                  name: this.$t('winnersText17'),
                   prize: '10 000 000 ' + this.$t('som'),
                 },
                 {
@@ -226,7 +226,7 @@ export default {
               list: [
                 {
                   id: 1,
-                  name: "Vladimirov Vladimir",
+                  name: this.$t('winnersText17'),
                   prize: '10 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText10'),
                 },
@@ -238,7 +238,7 @@ export default {
               list: [
                 {
                   id: 1,
-                  name: "Abdukhakimov Akbarali",
+                  name: this.$t('winnersText17'),
                   prize: '4 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText15'),
                 },
@@ -250,7 +250,7 @@ export default {
                 },
                 {
                   id: 3,
-                  name: "Bozorov Javohir",
+                  name: this.$t('winnersText17'),
                   prize: '2 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText13'),
                 },
@@ -285,17 +285,17 @@ export default {
               list: [
                 {
                   id: 1,
-                  name: "Abdujabborova Vasilaxon",
+                  name: this.$t('winnersText17'),
                   prize: '10 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 2,
-                  name: "Olimova Ruqiya",
+                  name: this.$t('winnersText17'),
                   prize: '8 000 000 ' + this.$t('som'),
                 },
                 {
                   id: 3,
-                  name: "Mansurova Mumtozbegim",
+                  name: this.$t('winnersText17'),
                   prize: '5 000 000 ' + this.$t('som'),
                 },
               ]
@@ -306,13 +306,13 @@ export default {
               list: [
                 {
                   id: 1,
-                  name: "Saydalieva Sharofatbegim",
+                  name: this.$t('winnersText17'),
                   prize: '4 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText15'),
                 },
                 {
                   id: 2,
-                  name: "Xikmatxonova Mohinur",
+                  name: this.$t('winnersText17'),
                   prize: '3 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText12'),
                 },
@@ -323,8 +323,8 @@ export default {
                   notice: this.$t('winnersText13'),
                 },
                 {
-                  id: 4,
-                  name: "Mikhiddinova Nilufar",
+                  id: 3,
+                  name: this.$t('winnersText17'),
                   prize: '1 000 000 ' + this.$t('som'),
                   notice: this.$t('winnersText14'),
                 },
