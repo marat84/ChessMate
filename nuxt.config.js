@@ -69,6 +69,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {src: '~/plugins/MyPlugins/utilsNative.js', mode: 'client'},
+    '~/plugins/MyPlugins/utils.js',
 
     '~/plugins/v-mask.js',
     '~/plugins/axios.js',
@@ -81,7 +82,6 @@ export default {
     {src: '~/plugins/MyPlugins/fileUpload.js', mode: 'client'},
     {src: '~/plugins/MyPlugins/message.js', mode: 'client'},
 
-    '~/plugins/MyPlugins/utils.js',
     '~/plugins/MyPlugins/getStatusError.js',
     '~/plugins/MyPlugins/prettyDate.js',
     '~/plugins/MyPlugins/prettyDate2.js',
