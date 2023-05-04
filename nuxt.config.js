@@ -104,6 +104,10 @@ export default {
       thresholds: {
         md: 1320
       }
+    },
+    defaultAssets: false,
+    icons: {
+      iconfont: 'mdiSvg' // для кастомизации иконок https://vuetifyjs.com/en/customization/icons
     }
   },
 
